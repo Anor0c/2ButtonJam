@@ -1,0 +1,3 @@
+BG = Kenney's Game Assets all in 1 by Kenney
+Animations Player = FREE Pixel Art Character Asset Pack by ZeggyGames
+Pixel Font = Pixeled by OmegaPC777

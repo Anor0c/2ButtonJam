@@ -1,0 +1,10 @@
+res://Misc/tile_map.tres::7f0b4678eed5b32826846ae9f152ed8b::1699719454::res://.godot/exported/133200997/export-bcab5a6fc20080e920d2601dcbf0404c-tile_map.res
+res://Scenes/bind_rect.tscn::d8af8cacb2a2178d9d60119951b2ade8::1699655067::res://.godot/exported/133200997/export-5a1d5ddd1b7a62aeda2d7f80878c467a-bind_rect.scn
+res://Scenes/enemy_test.tscn::ed339d0ba7e456d038b57f96be5e2237::1699726959::res://.godot/exported/133200997/export-d4a1cf146f5b3d1396c4992020dcf4cf-enemy_test.scn
+res://Scenes/gameplay_scene.tscn::59cda19429daa95d43e679147a8b5b5f::1699727648::res://.godot/exported/133200997/export-23a8adb7c11c93bc407fddc3cf077bc7-gameplay_scene.scn
+res://Scenes/main_menu.tscn::3e05baf12a4a73613f2a776097df5190::1699726959::res://.godot/exported/133200997/export-502e6a9b269597544b234abf28958cd8-main_menu.scn
+res://Scenes/player_character.tscn::efed1d7815011e2b38be00914fb7a494::1699726959::res://.godot/exported/133200997/export-94908fe9324b962a3e365a2755a54655-player_character.scn
+res://Scenes/end_area.tscn::590c4aab0f2ac4a7e72d9212a96f4345::1699721609::res://.godot/exported/133200997/export-61a6d1b66d944e489c3525a0d26453cb-end_area.scn
+res://Scenes/spike_trap.tscn::cc5537e0a655a7a519d97513c709475b::1699726959::res://.godot/exported/133200997/export-ddf813325673611df5a6fdaab20536f3-spike_trap.scn
+res://Scenes/test_paltform.tscn::2fd7dc3fed9984888769b43fa7998021::1699279636::res://.godot/exported/133200997/export-14c2ad01bf4f24f89744ef6423ae400f-test_paltform.scn
+res://Scenes/tile_map.tscn::79d807d4cf8825b6052b631454fbeb94::1699726959::res://.godot/exported/133200997/export-db608cca6031590f1fa40b9b412071a2-tile_map.scn

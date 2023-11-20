@@ -1,0 +1,17 @@
+D:\GodotProject\2ButtonJam\.godot\mono\temp\bin\Debug\2 Button Jam.deps.json
+D:\GodotProject\2ButtonJam\.godot\mono\temp\bin\Debug\2 Button Jam.runtimeconfig.json
+D:\GodotProject\2ButtonJam\.godot\mono\temp\bin\Debug\2 Button Jam.dll
+D:\GodotProject\2ButtonJam\.godot\mono\temp\bin\Debug\2 Button Jam.pdb
+D:\GodotProject\2ButtonJam\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\GodotProject\2ButtonJam\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.csproj.AssemblyReference.cache
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.GeneratedMSBuildEditorConfig.editorconfig
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.AssemblyInfoInputs.cache
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.AssemblyInfo.cs
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.csproj.CoreCompileInputs.cache
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.csproj.CopyComplete
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.dll
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\refint\2 Button Jam.dll
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.pdb
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.genruntimeconfig.cache
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\ref\2 Button Jam.dll

@@ -1,0 +1,15 @@
+res://Scenes/gameplay_scene.tscn
+res://Misc/tile_map.tres
+res://Scenes/main_menu.tscn
+res://Scenes/player_character.tscn
+res://Scenes/tile_map.tscn
+res://Scenes/spike_trap.tscn
+res://Scenes/enemy_test.tscn
+res://Scripts/BindInput.cs
+res://Scripts/BindRect.cs
+res://Scripts/enemy_test.cs
+res://Scripts/Hitbox.cs
+res://Scripts/PlayerMove.cs
+res://Scripts/UIVisibility.cs
+res://Scenes/bind_rect.tscn
+res://Scripts/Hurtbox.gd

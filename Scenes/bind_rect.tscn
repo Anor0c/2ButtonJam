@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://clsy0mkx78ncy"]
+
+[ext_resource type="Script" path="res://Scripts/BindRect.cs" id="1_i1d7p"]
+[ext_resource type="Script" path="res://Scripts/BindInput.cs" id="2_6vqr6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yycjj"]
+line_spacing = 0.0
+font_size = 200
+font_color = Color(0.898039, 0.898039, 0.898039, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="BindRect" type="ColorRect"]
+offset_left = 200.0
+offset_top = 150.0
+offset_right = 450.0
+offset_bottom = 400.0
+color = Color(0.439216, 0.34902, 0.517647, 1)
+script = ExtResource("1_i1d7p")
+
+[node name="Label" type="Label" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 273.0
+text = " "
+label_settings = SubResource("LabelSettings_yycjj")
+script = ExtResource("2_6vqr6")
