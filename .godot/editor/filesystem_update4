@@ -11,5 +11,4 @@ res://Scripts/enemy_test.cs
 res://Scripts/Hitbox.cs
 res://Scripts/PlayerMove.cs
 res://Scripts/UIVisibility.cs
-res://Scenes/bind_rect.tscn
-res://Scripts/Hurtbox.gd
+res://Scenes/WinLabel.gd
