@@ -7,7 +7,7 @@ func _ready()->void :
 
 
 func on_hitbox_hit(col : Hitbox)->void :
-	print ("HitBox Hit")
+	print (col)
 	if owner.has_method("TakeDamage"):
-		owner.TakeDamage(col.Damage)
+		owner.TakeDamage( col.Damage)
 		print ("Health Present")

@@ -1,36 +1,98 @@
-[gd_scene load_steps=2 format=3 uid="uid://4nxwx5yy6vfi"]
+[gd_scene load_steps=3 format=3 uid="uid://4nxwx5yy6vfi"]
 
-[ext_resource type="Script" path="res://Scripts/UIVisibility.cs" id="1_t0m8y"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_er12n"]
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_rao0v"]
+line_spacing = 6.0
+font_size = 26
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="MainMenuControl" type="Control" parent="." node_paths=PackedStringArray("startButton", "creditButton", "quitButton", "backButton", "creditLabel")]
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t0m8y")
+script = ExtResource("1_er12n")
+startButton = NodePath("PlayButton")
+creditButton = NodePath("CreditButton")
+quitButton = NodePath("QuitButton")
+backButton = NodePath("Label/BackButton")
+creditLabel = NodePath("Label")
 
-[node name="PlayButton" type="Button" parent="."]
+[node name="ColorRect" type="ColorRect" parent="MainMenuControl"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.374364, 0.415258, 0.480654, 1)
+
+[node name="PlayButton" type="Button" parent="MainMenuControl"]
 layout_mode = 0
 offset_left = 300.0
 offset_top = 150.0
 offset_right = 800.0
 offset_bottom = 250.0
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../CreditButton")
+focus_mode = 1
 text = "Play"
 
-[node name="CreditButton" type="Button" parent="."]
+[node name="CreditButton" type="Button" parent="MainMenuControl"]
 layout_mode = 0
 offset_left = 300.0
 offset_top = 300.0
 offset_right = 800.0
 offset_bottom = 400.0
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="MainMenuControl"]
 layout_mode = 0
 offset_left = 300.0
 offset_top = 450.0
 offset_right = 800.0
 offset_bottom = 550.0
+focus_neighbor_top = NodePath("../CreditButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
 text = "Quit"
+
+[node name="Label" type="Label" parent="MainMenuControl"]
+visible = false
+layout_mode = 0
+offset_left = 178.0
+offset_top = 141.0
+offset_right = 960.0
+offset_bottom = 562.0
+text = "A game by Anoroc and Koda
+
+    Assets Used
+
+BG = Kenney's Game Assets all in 1 by Kenney
+Animations Player = Pixel Art Character Asset Pack by ZeggyGames
+Pixel Font = Pixeled by OmegaPC777
+"
+label_settings = SubResource("LabelSettings_rao0v")
+
+[node name="BackButton" type="Button" parent="MainMenuControl/Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 171.0
+offset_top = 106.5
+offset_right = 474.0
+offset_bottom = 192.5
+text = "Back"
+
+[connection signal="pressed" from="MainMenuControl/PlayButton" to="MainMenuControl" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/CreditButton" to="MainMenuControl" method="_on_credit_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/QuitButton" to="MainMenuControl" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/Label/BackButton" to="MainMenuControl" method="_on_back_button_pressed"]

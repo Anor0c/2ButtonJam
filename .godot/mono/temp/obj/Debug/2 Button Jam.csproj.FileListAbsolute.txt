@@ -9,7 +9,6 @@ D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.GeneratedMSBu
 D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.AssemblyInfoInputs.cache
 D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.AssemblyInfo.cs
 D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.csproj.CoreCompileInputs.cache
-D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.csproj.CopyComplete
 D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.dll
 D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\refint\2 Button Jam.dll
 D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.pdb
@@ -32,3 +31,5 @@ D:\Users\L.CORONA\Documents\GitHub\2ButtonJam\.godot\mono\temp\obj\Debug\refint\
 D:\Users\L.CORONA\Documents\GitHub\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.pdb
 D:\Users\L.CORONA\Documents\GitHub\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.genruntimeconfig.cache
 D:\Users\L.CORONA\Documents\GitHub\2ButtonJam\.godot\mono\temp\obj\Debug\ref\2 Button Jam.dll
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button Jam.sourcelink.json
+D:\GodotProject\2ButtonJam\.godot\mono\temp\obj\Debug\2 Button.3A3A354B.Up2Date

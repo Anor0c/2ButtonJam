@@ -6,9 +6,13 @@ res://Scenes/tile_map.tscn
 res://Scenes/spike_trap.tscn
 res://Scenes/enemy_test.tscn
 res://Scripts/BindInput.cs
-res://Scripts/BindRect.cs
+res://Scripts/UIVisibility.cs
 res://Scripts/enemy_test.cs
 res://Scripts/Hitbox.cs
+res://Scripts/BindRect.cs
 res://Scripts/PlayerMove.cs
-res://Scripts/UIVisibility.cs
+res://Scripts/Hurtbox.gd
 res://Scenes/WinLabel.gd
+res://Scripts/main_menu.gd
+res://Scripts/StaminaBarIn.gd
+res://Scripts/enemy_pattern.gd
