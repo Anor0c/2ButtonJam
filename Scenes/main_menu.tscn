@@ -90,6 +90,8 @@ offset_left = 171.0
 offset_top = 106.5
 offset_right = 474.0
 offset_bottom = 192.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Back"
 
 [connection signal="pressed" from="MainMenuControl/PlayButton" to="MainMenuControl" method="_on_play_button_pressed"]

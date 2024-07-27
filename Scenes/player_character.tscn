@@ -511,9 +511,7 @@ script = ExtResource("2_wgpxs")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_mlcwx")
-animation = &"Death"
-frame = 9
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0

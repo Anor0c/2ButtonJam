@@ -41,6 +41,7 @@ fwdAtkHitbox = NodePath("FwrAtkHitbox/CollisionShape2D")
 stabHitbox = NodePath("StabHitbox/CollisionShape2D")
 
 [node name="MainMenu" parent="PlayerCharacter/Camera2D" index="1" instance=ExtResource("8_sewfl")]
+visible = false
 
 [node name="JumpHitbox" type="Area2D" parent="PlayerCharacter"]
 collision_layer = 6
@@ -134,3 +135,4 @@ text = "Space ^"
 label_settings = SubResource("LabelSettings_lmk3v")
 
 [editable path="PlayerCharacter"]
+[editable path="Enemy"]

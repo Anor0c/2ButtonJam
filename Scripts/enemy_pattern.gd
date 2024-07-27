@@ -1,21 +1,31 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
+const SPEED : float = 300.0
+@export var paternLocationArray : Array[Vector2]
+var currentPaternLocation : Vector2
+var currentLocationIndex : int = 0
+var direction : float = 0
 #A changer pour faire des patern d'ennemis qui soit modifiables dans l'inspecteur!!!!
 
+func _ready()->void:
+	choose_pattern_location()
 
-func _physics_process(delta):
+func choose_pattern_location() ->void: 
+	currentLocationIndex +=1
+	if currentLocationIndex>paternLocationArray.size()-1:
+		currentLocationIndex = 0
+	currentPaternLocation = paternLocationArray[currentLocationIndex]
+	print("new Location is Index ",currentLocationIndex ," Its value is ",currentPaternLocation)
 
+func _physics_process(delta : float)->void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	direction = clamp (self.position.x - currentPaternLocation.x, -1, 1) 
+	if direction > 0.3 or direction < -0.3:
+		velocity.x = -direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		choose_pattern_location()
+	print (velocity, self.position.x - currentPaternLocation.x)
 	move_and_slide()

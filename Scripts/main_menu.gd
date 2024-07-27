@@ -6,7 +6,7 @@ extends Control
 
 @export var creditLabel : Label
 
-func _ready():
+func _ready()->void:
 	startButton.grab_focus()
 
 func _on_play_button_pressed()->void:
