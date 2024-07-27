@@ -1,6 +1,7 @@
+GDHitbox
+Hitbox
 CollisionShape2D
 CharacterBody2D
-Hitbox
 Container
 CanvasLayer
 ColorRect
@@ -11,4 +12,3 @@ Area2D
 AnimatedSprite2D
 Node2D
 Node
-Sprite2D

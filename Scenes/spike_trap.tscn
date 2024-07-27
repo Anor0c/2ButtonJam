@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://cl3rfskwuvtk2"]
 
-[ext_resource type="Script" path="res://Scripts/Hitbox.cs" id="1_1m61u"]
 [ext_resource type="Texture2D" uid="uid://dp1dqqi64o3pk" path="res://Sprites/SpikeTrap.png" id="1_5ipx5"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="1_7a4cp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vt508"]
 size = Vector2(128, 64)
 
-[node name="Hitbox" type="Area2D"]
+[node name="GDHitbox" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_1m61u")
+script = ExtResource("1_7a4cp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)

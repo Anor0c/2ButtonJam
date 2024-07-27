@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://dtwgbnxpbeg87"]
 
 [ext_resource type="PackedScene" uid="uid://coj0wsgkpk8g6" path="res://Scenes/player_character.tscn" id="1_h86yp"]
-[ext_resource type="Script" path="res://Scripts/Hitbox.cs" id="2_dmv70"]
 [ext_resource type="PackedScene" uid="uid://cerrtxb4n448s" path="res://Scenes/tile_map.tscn" id="2_r8p05"]
 [ext_resource type="PackedScene" uid="uid://cl3rfskwuvtk2" path="res://Scenes/spike_trap.tscn" id="3_11axk"]
 [ext_resource type="PackedScene" uid="uid://bop0dm4vu8yep" path="res://Scenes/enemy_test.tscn" id="4_6rvnk"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="4_obven"]
 [ext_resource type="FontFile" uid="uid://c53f33m0xhv8j" path="res://UI/Pixeled.ttf" id="6_81uh2"]
-[ext_resource type="Script" path="res://Scenes/WinLabel.gd" id="7_4tvqm"]
+[ext_resource type="Script" path="res://Scripts/WinLabel.gd" id="7_4tvqm"]
 [ext_resource type="PackedScene" uid="uid://4nxwx5yy6vfi" path="res://Scenes/main_menu.tscn" id="8_sewfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2jva"]
@@ -36,39 +36,39 @@ position = Vector2(24, 44)
 [node name="PlayerCharacter" parent="." node_paths=PackedStringArray("jumpHitbox", "fwdAtkHitbox", "stabHitbox") instance=ExtResource("1_h86yp")]
 z_index = 1
 position = Vector2(152, 280)
-jumpHitbox = NodePath("JumpHitbox/CollisionShape2D")
-fwdAtkHitbox = NodePath("FwrAtkHitbox/CollisionShape2D")
-stabHitbox = NodePath("StabHitbox/CollisionShape2D")
+jumpHitbox = NodePath("JumpGDHitbox/CollisionShape2D")
+fwdAtkHitbox = NodePath("FwrGDHitbox/CollisionShape2D")
+stabHitbox = NodePath("StabGDHitbox/CollisionShape2D")
 
 [node name="MainMenu" parent="PlayerCharacter/Camera2D" index="1" instance=ExtResource("8_sewfl")]
 visible = false
 
-[node name="JumpHitbox" type="Area2D" parent="PlayerCharacter"]
+[node name="JumpGDHitbox" type="Area2D" parent="PlayerCharacter"]
 collision_layer = 6
 collision_mask = 6
-script = ExtResource("2_dmv70")
+script = ExtResource("4_obven")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/JumpHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/JumpGDHitbox"]
 position = Vector2(67, -16.5)
 shape = SubResource("RectangleShape2D_u2jva")
 disabled = true
 
-[node name="FwrAtkHitbox" type="Area2D" parent="PlayerCharacter"]
+[node name="FwrGDHitbox" type="Area2D" parent="PlayerCharacter"]
 collision_layer = 6
 collision_mask = 6
-script = ExtResource("2_dmv70")
+script = ExtResource("4_obven")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/FwrAtkHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/FwrGDHitbox"]
 position = Vector2(78.5, 11)
 shape = SubResource("RectangleShape2D_nfeuu")
 disabled = true
 
-[node name="StabHitbox" type="Area2D" parent="PlayerCharacter"]
+[node name="StabGDHitbox" type="Area2D" parent="PlayerCharacter"]
 collision_layer = 6
 collision_mask = 6
-script = ExtResource("2_dmv70")
+script = ExtResource("4_obven")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/StabHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/StabGDHitbox"]
 position = Vector2(105, 8)
 shape = SubResource("RectangleShape2D_8ees5")
 disabled = true

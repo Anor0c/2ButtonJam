@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://bop0dm4vu8yep"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_dlypl"]
-[ext_resource type="Script" path="res://Scripts/Hitbox.cs" id="1_s4205"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="2_hb7ix"]
 [ext_resource type="Texture2D" uid="uid://boeur4qer7cws" path="res://Sprites/SpritesheetBeeg.png" id="3_d4bd5"]
 [ext_resource type="Script" path="res://Scripts/EnemySprite.gd" id="4_27gmn"]
 [ext_resource type="Script" path="res://Scripts/enemy_pattern.gd" id="5_nniyy"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="6_q66uy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omq1g"]
 radius = 32.0
@@ -51,6 +51,8 @@ position = Vector2(776, 408)
 script = ExtResource("1_dlypl")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("5_nniyy")
 paternLocationArray = Array[Vector2]([Vector2(150, 0), Vector2(-180, 0)])
@@ -74,10 +76,10 @@ script = ExtResource("2_hb7ix")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hurtbox"]
 shape = SubResource("RectangleShape2D_n7nme")
 
-[node name="Hitbox" type="Area2D" parent="CharacterBody2D"]
+[node name="GDHitbox" type="Area2D" parent="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_s4205")
+script = ExtResource("6_q66uy")
 
-[node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/Hitbox"]
+[node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/GDHitbox"]
 shape = SubResource("RectangleShape2D_2aje8")

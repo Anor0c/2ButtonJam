@@ -15,3 +15,7 @@ res://Scripts/main_menu.gd
 res://Scripts/StaminaBarIn.gd
 res://Scripts/EnemySprite.gd
 res://Scripts/Enemy.gd
+res://Scripts/Hitbox.gd
+res://Scripts/Hurtbox.gd
+res://Scripts/PlayerChar.gd
+res://Scripts/PlayerAnim.gd
