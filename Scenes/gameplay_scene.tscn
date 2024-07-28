@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtwgbnxpbeg87"]
+[gd_scene load_steps=11 format=3 uid="uid://dtwgbnxpbeg87"]
 
 [ext_resource type="PackedScene" uid="uid://coj0wsgkpk8g6" path="res://Scenes/player_character.tscn" id="1_h86yp"]
 [ext_resource type="PackedScene" uid="uid://cerrtxb4n448s" path="res://Scenes/tile_map.tscn" id="2_r8p05"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bop0dm4vu8yep" path="res://Scenes/enemy_test.tscn" id="4_6rvnk"]
 [ext_resource type="FontFile" uid="uid://c53f33m0xhv8j" path="res://UI/Pixeled.ttf" id="6_81uh2"]
 [ext_resource type="Script" path="res://Scripts/WinLabel.gd" id="7_4tvqm"]
+[ext_resource type="PackedScene" uid="uid://dw5stllo87tln" path="res://Scenes/slippers.tscn" id="8_haj7d"]
 [ext_resource type="PackedScene" uid="uid://4nxwx5yy6vfi" path="res://Scenes/main_menu.tscn" id="8_sewfl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xbpq"]
@@ -90,5 +91,9 @@ visible = false
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_h86yp")]
 position = Vector2(160, 172)
 fwdAttackStaminaCost = -50.0
+
+[node name="Slippers" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_haj7d")]
+position = Vector2(744, 324)
+player = NodePath("../PlayerCharacter")
 
 [editable path="Enemy"]

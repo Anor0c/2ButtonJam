@@ -1,3 +1,4 @@
+class_name PlayerChar
 extends CharacterBody2D
 
 
@@ -105,9 +106,10 @@ func _physics_process(delta : float)->void:
 func _process(_delta : float)->void:
 	if (not canMove):
 		canMove=HasEnoughStamina(MaxStamina);
-	print ("Can Move is ", canMove)
+	#print ("Can Move is ", canMove)
 	
 	
+#region Stamina
 func StaminaUpdate(delta : float)->void:
 	currentStamina = clamp(currentStamina+delta, 0, MaxStamina)
 	emit_signal("OnStaminaChanged", currentStamina, MaxStamina)
@@ -121,6 +123,7 @@ func HasEnoughStamina(staminaNeeded: float)->bool:
 func StaminaDepleted()->void :
 	anim.SleepAnim()
 	canMove=false
+#endregion
 
 func TakeDamage (Damage : float) ->void :
 	currentHealth = clamp(currentHealth + Damage, 0, MaxHealth);
@@ -131,7 +134,7 @@ func TakeDamage (Damage : float) ->void :
 	else:
 		anim.HurtAnim();
 
-
+#region AnimSignals
 func _on_animated_sprite_2d_state_changed(animState : StringName)->void:
 	if animState == "Hurt":
 		set_deferred("fwdAtkHitbox.disabled", true)  
@@ -179,3 +182,5 @@ func _on_animated_sprite_2d_state_ended(animState:StringName)->void:
 		jumpHitbox.disabled = true
 	if (animState == "Hurt"):
 		canMove = true
+
+#endregion
