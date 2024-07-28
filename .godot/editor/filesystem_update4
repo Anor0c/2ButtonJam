@@ -4,5 +4,3 @@ res://Misc/tile_map.tres
 res://Scenes/player_character.tscn
 res://Scenes/enemy_test.tscn
 res://Scenes/spike_trap.tscn
-res://Scripts/PlayerChar.gd
-res://Scripts/PlayerAnim.gd
