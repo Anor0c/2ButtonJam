@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2 Button Jam")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f79d580cb1cfce7490f9995bf5f13894b3aad58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58c9f874fc4ea7ee7feb62eea06a1bbe5fb86947")]
 [assembly: System.Reflection.AssemblyProductAttribute("2 Button Jam")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2 Button Jam")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

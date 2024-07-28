@@ -1,6 +1,5 @@
-GDHitbox
-Hitbox
 CollisionShape2D
+GDHitbox
 CharacterBody2D
 Container
 CanvasLayer

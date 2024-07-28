@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://coj0wsgkpk8g6"]
+[gd_scene load_steps=79 format=3 uid="uid://coj0wsgkpk8g6"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerChar.gd" id="1_28tex"]
 [ext_resource type="Texture2D" uid="uid://fp4n4x55trgx" path="res://Sprites/PlayerSwordIdle.png" id="2_0tu36"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://o3covi6d3lpu" path="res://Sprites/VikingJump.png" id="10_8quag"]
 [ext_resource type="Script" path="res://Scripts/PlayerAnim.gd" id="12_57h43"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="12_n5cjr"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="14_yh77f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj32y"]
 size = Vector2(63, 121)
@@ -474,9 +475,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox67b"]
 size = Vector2(64, 120)
 
-[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k67rw"]
+size = Vector2(71, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfd4k"]
+size = Vector2(111, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2eew"]
+size = Vector2(143, 34)
+
+[node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("jumpHitbox", "fwdAtkHitbox", "stabHitbox", "anim")]
 collision_layer = 0
 script = ExtResource("1_28tex")
+jumpHitbox = NodePath("JumpHit/JumpHitShape")
+fwdAtkHitbox = NodePath("SlashHit/SlashHitShape")
+stabHitbox = NodePath("StabHit/StabHitShape")
 anim = NodePath("AnimatedSprite2D")
 
 [node name="PlayerCol" type="CollisionShape2D" parent="."]
@@ -509,7 +522,7 @@ script = ExtResource("2_wgpxs")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerChar")]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_mlcwx")
-animation = &"Idle"
+animation = &"Jump"
 script = ExtResource("12_57h43")
 playerChar = NodePath("..")
 
@@ -523,7 +536,37 @@ script = ExtResource("12_n5cjr")
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_ox67b")
 
+[node name="JumpHit" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("14_yh77f")
+
+[node name="JumpHitShape" type="CollisionShape2D" parent="JumpHit"]
+position = Vector2(68.5, -8)
+shape = SubResource("RectangleShape2D_k67rw")
+
+[node name="SlashHit" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("14_yh77f")
+
+[node name="SlashHitShape" type="CollisionShape2D" parent="SlashHit"]
+position = Vector2(88.5, 12)
+shape = SubResource("RectangleShape2D_lfd4k")
+
+[node name="StabHit" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("14_yh77f")
+
+[node name="StabHitShape" type="CollisionShape2D" parent="StabHit"]
+position = Vector2(104.5, 7)
+shape = SubResource("RectangleShape2D_a2eew")
+
 [connection signal="OnStaminaChanged" from="." to="Camera2D/StaminaBarOut/StaminaBarIn" method="_on_player_character_on_stamina_changed"]
+[connection signal="StateChanged" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_state_changed"]
+[connection signal="StateEnded" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_state_ended"]
+[connection signal="StateLooped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_state_looped"]
 [connection signal="animation_changed" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_looped"]
