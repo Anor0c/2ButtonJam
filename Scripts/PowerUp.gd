@@ -1,7 +1,7 @@
 class_name BasePowerUp
 extends Area2D
 
-@export var player : CharacterBody2D
+@onready var player : CharacterBody2D = get_node("../PlayerCharacter")
 
 func _ready()->void:
 	print (player)

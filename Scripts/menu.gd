@@ -1,13 +1,17 @@
 extends Control
-@export var startButton : Button
-@export var creditButton : Button
-@export var quitButton : Button
-@export var backButton : Button
+
+@export var focusButton : Button
+@onready var startButton : Button = get_node("PlayButton")
+@onready var creditButton : Button = get_node("CreditButton")
+@onready var quitButton : Button = get_node("QuitButton")
+@onready var backButton : Button = get_node("Label/BackButton")
+@onready var retryButton : Button = get_node("RetryButton")
 
 @export var creditLabel : Label
 
 func _ready()->void:
-	startButton.grab_focus()
+	focusButton.grab_focus()
+	
 
 func _on_play_button_pressed()->void:
 	self.visible = false
@@ -30,4 +34,10 @@ func _on_back_button_pressed()->void:
 	startButton.visible = true
 	creditButton.visible =true
 	quitButton.visible = true
-	startButton.grab_focus()
+	focusButton.grab_focus()
+
+
+func _on_retry_button_pressed()->void:
+	self.visible = false 
+	get_tree().reload_current_scene()
+	

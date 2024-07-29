@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://bohc560b31rf1"]
+
+[ext_resource type="Texture2D" uid="uid://nafluv758xpm" path="res://Sprites/Feather explosion-Sheet.png" id="1_audij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37ny6"]
+atlas = ExtResource("1_audij")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svfxg"]
+atlas = ExtResource("1_audij")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnvej"]
+atlas = ExtResource("1_audij")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v2jr"]
+atlas = ExtResource("1_audij")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhaun"]
+atlas = ExtResource("1_audij")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfg5m"]
+atlas = ExtResource("1_audij")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx2ft"]
+atlas = ExtResource("1_audij")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hclo"]
+atlas = ExtResource("1_audij")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioq5x"]
+atlas = ExtResource("1_audij")
+region = Rect2(1600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x36m0"]
+atlas = ExtResource("1_audij")
+region = Rect2(1800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh0d1"]
+atlas = ExtResource("1_audij")
+region = Rect2(2000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ogxy"]
+atlas = ExtResource("1_audij")
+region = Rect2(2200, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4v8iw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37ny6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svfxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnvej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v2jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhaun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfg5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx2ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hclo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioq5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x36m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh0d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ogxy")
+}],
+"loop": false,
+"name": &"Explosion",
+"speed": 12.0
+}]
+
+[node name="FeatherExplosion" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4v8iw")
+animation = &"Explosion"
+autoplay = "Explosion"
+frame = 11
+frame_progress = 1.0

@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlxt8ivjf1r2"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_5fno1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wc3al"]
+font_size = 80
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DeathMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("focusButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5fno1")
+focusButton = NodePath("RetryButton")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.521569)
+
+[node name="RetryButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271
+anchor_top = 0.418
+anchor_right = 0.729
+anchor_bottom = 0.582
+offset_left = -0.192017
+offset_top = 0.135986
+offset_right = 0.191956
+offset_bottom = -0.136017
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.271
+anchor_top = 0.418
+anchor_right = 0.729
+anchor_bottom = 0.582
+offset_left = -0.192017
+offset_top = 129.136
+offset_right = 0.191956
+offset_bottom = 128.864
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.352
+anchor_top = 0.154
+anchor_right = 0.652
+anchor_bottom = 0.324
+offset_left = 0.495972
+offset_top = 0.207993
+offset_right = -0.104004
+offset_bottom = 0.0480042
+grow_horizontal = 2
+text = "You Died"
+label_settings = SubResource("LabelSettings_wc3al")
+
+[connection signal="pressed" from="Control/RetryButton" to="Control" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="Control" method="_on_quit_button_pressed"]

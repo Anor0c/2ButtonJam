@@ -53,12 +53,11 @@ func JumpAnim()->void:
 
 func SlashAnim()->void:
 	stop()
-	play("ForwardAttack")
+	play("Slash")
 
 func StabAnim()->void:
 	stop()
-	play("ForwardStab")
-	flip_h= not flip_h
+	play("TurnAttack")
 
 func HurtAnim()->void:
 	stop()
@@ -89,10 +88,10 @@ func _on_animation_changed() ->void:
 	if animation == "Jump": 
 		playerChar.StaminaUpdate(playerChar.jumpStaminaCost) #A remettre dans playerChara, pas de l'anim
 	 
-	if animation == "ForwardAttack": 
+	if animation == "Slash": 
 		playerChar.StaminaUpdate(playerChar.fwdAttackStaminaCost);
 		
-	if animation == "ForwardStab": 
+	if animation == "TurnAttack": 
 		playerChar.StaminaUpdate(playerChar.stabStaminaCost);
 		
 	if animation == "Run"||isSleeping: 
@@ -102,7 +101,7 @@ func _on_animation_changed() ->void:
 func _on_animation_finished()->void:
 	print (animation, " Ended")
 	emit_signal("StateEnded", animation)
-	if (animation == "ForwardAttack"||animation=="ForwardStab"||animation=="Jump"):
+	if (animation == "Slash"||animation=="TurnAttack"||animation=="Jump"):
 		isAttacking = false; 
 	if (animation == "Hurt"):
 		isHurt = false

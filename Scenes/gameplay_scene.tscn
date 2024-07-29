@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtwgbnxpbeg87"]
+[gd_scene load_steps=11 format=3 uid="uid://dtwgbnxpbeg87"]
 
 [ext_resource type="PackedScene" uid="uid://coj0wsgkpk8g6" path="res://Scenes/player_character.tscn" id="1_h86yp"]
 [ext_resource type="PackedScene" uid="uid://cerrtxb4n448s" path="res://Scenes/tile_map.tscn" id="2_r8p05"]
@@ -6,12 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://bop0dm4vu8yep" path="res://Scenes/enemy_test.tscn" id="4_6rvnk"]
 [ext_resource type="FontFile" uid="uid://c53f33m0xhv8j" path="res://UI/Pixeled.ttf" id="6_81uh2"]
 [ext_resource type="Script" path="res://Scripts/WinLabel.gd" id="7_4tvqm"]
+[ext_resource type="PackedScene" uid="uid://dw5stllo87tln" path="res://Scenes/slippers.tscn" id="7_qd4np"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xbpq"]
 font = ExtResource("6_81uh2")
 font_size = 150
 outline_size = 50
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rv3w6"]
+size = Vector2(162, 478)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lmk3v"]
 font = ExtResource("6_81uh2")
@@ -68,6 +72,14 @@ text = "YOU WIN !!"
 label_settings = SubResource("LabelSettings_3xbpq")
 script = ExtResource("7_4tvqm")
 
+[node name="Area2D" type="Area2D" parent="Label"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Label/Area2D"]
+position = Vector2(71, 229)
+shape = SubResource("RectangleShape2D_rv3w6")
+
 [node name="Label2" type="Label" parent="."]
 offset_left = 408.0
 offset_top = 192.0
@@ -85,6 +97,8 @@ label_settings = SubResource("LabelSettings_lmk3v")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_h86yp")]
 position = Vector2(160, 172)
-MaxHealth = 60
 
-[editable path="Enemy"]
+[node name="Slippers" parent="." instance=ExtResource("7_qd4np")]
+position = Vector2(3200, 68)
+
+[connection signal="area_entered" from="Label/Area2D" to="Label" method="_on_area_2d_area_entered"]

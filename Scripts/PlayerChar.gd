@@ -1,9 +1,9 @@
 class_name PlayerChar
 extends CharacterBody2D
 
-
 signal OnStaminaChanged(currentStamina:float, maxStamina:float)
 signal OnHealthChanged(currentHealth : int, maxHealth : int)
+
 @export_category("PlayerStats")
 @export var PlayerSpeed : float = 300.0
 @export var JumpVelocity : float = -600.0
@@ -26,13 +26,12 @@ var currentHealth : int= 1
 var sleepCounter : int= 0
 
 
-@export_category("HitboxReferences")
-@export var jumpHitbox:CollisionShape2D
-@export var fwdAtkHitbox:CollisionShape2D 
-@export var stabHitbox: CollisionShape2D
+@onready var jumpHitbox:CollisionShape2D = get_node("JumpHit/JumpHitShape")
+@onready var fwdAtkHitbox:CollisionShape2D = get_node("SlashHit/SlashHitShape")
+@onready var turnHitbox: CollisionShape2D = get_node("StabHit/StabHitShape")
 
-@export_category("AnimReference")
-@export var anim : AnimatedSprite2D
+@onready var anim : AnimatedSprite2D = get_node("AnimatedSprite2D")
+@onready var cam : Camera2D = get_node("Camera2D")
 
 func _ready() ->void:
 	currentStamina = MaxStamina
@@ -47,9 +46,10 @@ func _physics_process(delta : float)->void:
 	else  :
 		anim.isJumping = false
 		anim.wasInAir = false
+		velocityInternal= Vector2(velocityInternal.x, 0)
 
 	if (anim.isHurt):
-		velocityInternal = Vector2(-PlayerSpeed / 2, -300 / 2)
+		velocityInternal = Vector2(-PlayerSpeed / 2.0, -300.0 / 2.0)
 		velocity = velocityInternal
 		move_and_slide()
 		return
@@ -78,10 +78,10 @@ func _physics_process(delta : float)->void:
 		if (anim.isAttacking == false):
 			anim.SlashAnim()
 			anim.isAttacking = true
-		elif (anim.animation=="ForwardAttack"||anim.frame_progress>=0.6):
+		elif (anim.animation=="Slash"||anim.frame_progress>=0.6):
 			anim.StabAnim()
 			anim.isAttacking = true
-			PlayerSpeed=-PlayerSpeed
+			TurnAround()
 
 	if Input.is_action_pressed("Forward"):
 		if (anim.isSleeping):
@@ -111,7 +111,14 @@ func _process(_delta : float)->void:
 		canMove=HasEnoughStamina(MaxStamina)
 	#print ("Can Move is ", canMove)
 	
+func TurnAround()->void:
+	PlayerSpeed=-PlayerSpeed
+	anim.flip_h = not anim.flip_h
+	fwdAtkHitbox.position.x = -fwdAtkHitbox.position.x
+	jumpHitbox.position.x = -jumpHitbox.position.x
 	
+	
+
 #region Stamina
 func StaminaUpdate(delta : float)->void:
 	currentStamina = clamp(currentStamina+delta, 0, MaxStamina)
@@ -141,24 +148,24 @@ func TakeDamage (Damage : float) ->void :
 func _on_animated_sprite_2d_state_changed(animState : StringName)->void:
 	if animState == "Hurt":
 		set_deferred("fwdAtkHitbox.disabled", true)  
-		set_deferred("stabHitbox.disabled", true) 
+		set_deferred("turnHitbox.disabled", true) 
 		set_deferred("jumpHitbox.disabled", true) 
 
 	if animState == "Jump":
 		fwdAtkHitbox.disabled = true
-		stabHitbox.disabled = true
+		turnHitbox.disabled = true
 		jumpHitbox.disabled = false
 
-	if animState == "ForwardAttack": 
+	if animState == "Slash": 
 		fwdAtkHitbox.disabled = false
 
-	if animState == "ForwardStab": 
+	if animState == "TurnAttack": 
 		fwdAtkHitbox.disabled = true
-		stabHitbox.disabled = false
+		turnHitbox.disabled = false
 
 	if animState == "Run" or animState=="Sleep":
 		fwdAtkHitbox.disabled = true
-		stabHitbox.disabled = true
+		turnHitbox.disabled = true
 		jumpHitbox.disabled = true
 
 
@@ -177,10 +184,10 @@ func _on_animated_sprite_2d_state_looped(animState:StringName)->void:
 
 
 func _on_animated_sprite_2d_state_ended(animState:StringName)->void:
-	if(animState == "ForwardAttack"):
+	if(animState == "Slash"):
 		fwdAtkHitbox.disabled = true
-	if(animState == "ForwardStab"):
-		stabHitbox.disabled = true
+	if(animState == "TurnAttack"):
+		turnHitbox.disabled = true
 	if(animState == "Jump"):
 		jumpHitbox.disabled = true
 	if (animState == "Hurt"):

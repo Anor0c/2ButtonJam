@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4nxwx5yy6vfi"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_er12n"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_ok0ln"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rao0v"]
 line_spacing = 6.0
@@ -10,19 +10,18 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="CanvasLayer"]
 
-[node name="MainMenuControl" type="Control" parent="." node_paths=PackedStringArray("startButton", "creditButton", "quitButton", "backButton", "creditLabel")]
+[node name="MainMenuControl" type="Control" parent="." node_paths=PackedStringArray("focusButton", "creditLabel")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_er12n")
-startButton = NodePath("PlayButton")
-creditButton = NodePath("CreditButton")
-quitButton = NodePath("QuitButton")
-backButton = NodePath("Label/BackButton")
+script = ExtResource("1_ok0ln")
+focusButton = NodePath("PlayButton")
 creditLabel = NodePath("Label")
 
 [node name="ColorRect" type="ColorRect" parent="MainMenuControl"]
