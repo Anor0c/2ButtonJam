@@ -11,6 +11,7 @@ signal OnHealthChanged(currentHealth : int, maxHealth : int)
 @export var MaxHealth : int = 3
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canMove : bool = true
+var velocityInternal : Vector2  = velocity
 
 @export_category("StaminaCost")
 @export var runStaminaCost :float  = -5.0
@@ -38,74 +39,76 @@ func _ready() ->void:
 	currentHealth = MaxHealth
 
 func _physics_process(delta : float)->void:
-	var velocityInternal : Vector2  = velocity;
-
+#Gravity
 	if !is_on_floor():
-		velocityInternal.y += gravity * delta;
-		anim.wasInAir = true;
-		anim.isRunning = false;
+		velocityInternal.y += gravity * delta
+		anim.wasInAir = true
+		anim.isRunning = false
 	else  :
-		anim.isJumping = false;
-		anim.wasInAir = false; 
+		anim.isJumping = false
+		anim.wasInAir = false
+
+	if (anim.isHurt):
+		velocityInternal = Vector2(-PlayerSpeed / 2, -300 / 2)
+		velocity = velocityInternal
+		move_and_slide()
+		return
 
 	if (not canMove):
-		velocityInternal = Vector2 (0,velocityInternal.y);
-		velocity = velocityInternal;
-		move_and_slide()
-		return;
-	if (anim.isHurt):
-		velocityInternal = Vector2(-PlayerSpeed / 2, -PlayerSpeed / 2);
-		velocity = velocityInternal;
+		velocityInternal = Vector2 (0,velocityInternal.y)
+		velocity = velocityInternal
 		move_and_slide()
 		return
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("Up") && is_on_floor():
 		if (anim.isSleeping):
-			anim.isSleeping = false;
-		sleepCounter = 0;
-		velocityInternal.y = JumpVelocity;
-		anim.JumpAnim();
-		anim.wasInAir = true;
-		anim.isJumping = true;
-		anim.isAttacking = true;
+			anim.isSleeping = false
+		sleepCounter = 0
+		velocityInternal.y = JumpVelocity
+		anim.JumpAnim()
+		anim.wasInAir = true
+		anim.isJumping = true
+		anim.isAttacking = true
 
+	#Handle Forward Input
 	if Input.is_action_just_pressed("Forward") && is_on_floor():
 		if (anim.isSleeping):
-			anim.isSleeping = false; 
+			anim.isSleeping = false
 		if (anim.isAttacking == false):
-			anim.SlashAnim();
-			anim.isAttacking = true;
+			anim.SlashAnim()
+			anim.isAttacking = true
 		elif (anim.animation=="ForwardAttack"||anim.frame_progress>=0.6):
-			anim.StabAnim();
-			anim.isAttacking = true;
+			anim.StabAnim()
+			anim.isAttacking = true
+			PlayerSpeed=-PlayerSpeed
 
 	if Input.is_action_pressed("Forward"):
 		if (anim.isSleeping):
-			anim.isSleeping = false;
-		velocityInternal.x = PlayerSpeed;
-		sleepCounter = 0;
+			anim.isSleeping = false
+		velocityInternal.x = PlayerSpeed
+		sleepCounter = 0
 		if (is_on_floor()&&anim.isAttacking==false) :
-			anim.RunAnim();
-			anim.isRunning = true;
+			anim.RunAnim()
+			anim.isRunning = true
 		else:
-			anim.isRunning = false;
+			anim.isRunning = false
 	else:
 		if is_on_floor():
-			velocityInternal.x = move_toward(velocity.x, 0, PlayerSpeed);
+			velocityInternal.x = move_toward(velocity.x, 0, 300)
 		else:
-			velocityInternal.x = move_toward(velocity.x, 0, PlayerSpeed / 50);        
-		anim.isRunning = false;
-		anim.canIdle = true;
-	velocity = velocityInternal;
+			velocityInternal.x = move_toward(velocity.x, 0, 10)       
+		anim.isRunning = false
+		anim.canIdle = true
+	velocity = velocityInternal
 	move_and_slide()
-
+	print ("Speed : ", PlayerSpeed, ", Velocity : ", velocity, ", Internal Velocity : ", velocityInternal)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta : float)->void:
 	if (not canMove):
-		canMove=HasEnoughStamina(MaxStamina);
+		canMove=HasEnoughStamina(MaxStamina)
 	#print ("Can Move is ", canMove)
 	
 	
@@ -126,13 +129,13 @@ func StaminaDepleted()->void :
 #endregion
 
 func TakeDamage (Damage : float) ->void :
-	currentHealth = clamp(currentHealth + Damage, 0, MaxHealth);
-	emit_signal("OnHealthChanged", currentHealth, MaxHealth);
-	print(currentHealth);
+	currentHealth = clamp(currentHealth + Damage, 0, MaxHealth)
+	emit_signal("OnHealthChanged", currentHealth, MaxHealth)
+	print(currentHealth)
 	if (currentHealth == 0):
-		anim.DeathAnim();
+		anim.DeathAnim()
 	else:
-		anim.HurtAnim();
+		anim.HurtAnim()
 
 #region AnimSignals
 func _on_animated_sprite_2d_state_changed(animState : StringName)->void:

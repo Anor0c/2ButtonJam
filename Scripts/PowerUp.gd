@@ -9,6 +9,7 @@ func _ready()->void:
 func _on_area_entered(col : Area2D)->void:
 	if col.owner == player:
 		PowerUpCollected(player)
+		print ("pickedUp")
 		queue_free()
 
 func PowerUpCollected(_player : CharacterBody2D)->void:

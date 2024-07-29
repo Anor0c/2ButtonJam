@@ -4,9 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cy634m21d8842" path="res://icon.svg" id="2_vifrb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5o3t"]
-size = Vector2(42, 40)
+size = Vector2(38, 38)
 
 [node name="Slippers" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 script = ExtResource("1_pvhgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

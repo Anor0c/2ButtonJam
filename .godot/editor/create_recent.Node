@@ -1,3 +1,4 @@
+TileMap
 Sprite2D
 CollisionShape2D
 Slippers
@@ -12,4 +13,3 @@ Button
 Label
 AnimatedSprite2D
 Node2D
-Node

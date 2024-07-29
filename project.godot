@@ -66,7 +66,9 @@ Up={
 [layer_names]
 
 2d_physics/layer_1="Platforms"
-2d_physics/layer_2="Hitboxes"
+2d_physics/layer_2="PlayerHurtBox"
+2d_physics/layer_3="EnemyHurtBox"
+2d_physics/layer_4="Collectables"
 
 [rendering]
 

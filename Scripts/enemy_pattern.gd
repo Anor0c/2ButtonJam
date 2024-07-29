@@ -19,8 +19,6 @@ func choose_pattern_location() ->void:
 	##print("new Location is Index ",currentLocationIndex ," Its value is ",currentPaternLocation)
 
 func _physics_process(_delta : float)->void:
-
-
 	direction = clamp (self.position.x - currentPaternLocation.x, -1, 1) 
 	if direction > 0.3 or direction < -0.3:
 		velocity.x = -direction * SPEED

@@ -58,6 +58,7 @@ func SlashAnim()->void:
 func StabAnim()->void:
 	stop()
 	play("ForwardStab")
+	flip_h= not flip_h
 
 func HurtAnim()->void:
 	stop()

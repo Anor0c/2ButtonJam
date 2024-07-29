@@ -1,10 +1,11 @@
-[gd_scene load_steps=79 format=3 uid="uid://coj0wsgkpk8g6"]
+[gd_scene load_steps=80 format=3 uid="uid://coj0wsgkpk8g6"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerChar.gd" id="1_28tex"]
 [ext_resource type="Texture2D" uid="uid://fp4n4x55trgx" path="res://Sprites/PlayerSwordIdle.png" id="2_0tu36"]
 [ext_resource type="Texture2D" uid="uid://djdw23j1gohwm" path="res://Sprites/PlayerDeath.png" id="2_6yf2e"]
 [ext_resource type="Texture2D" uid="uid://bwx6rtqdjyuiu" path="res://Sprites/PlayerSwordRun.png" id="2_bwdc3"]
 [ext_resource type="Script" path="res://Scripts/StaminaBarIn.gd" id="2_wgpxs"]
+[ext_resource type="PackedScene" uid="uid://4nxwx5yy6vfi" path="res://Scenes/main_menu.tscn" id="3_qyobv"]
 [ext_resource type="Texture2D" uid="uid://draa885hkdy1c" path="res://Sprites/VikingSwordAttack.png" id="3_wqvfp"]
 [ext_resource type="Texture2D" uid="uid://c3al5s7cd5msd" path="res://Sprites/VikingSwordStab.png" id="4_02rqp"]
 [ext_resource type="Texture2D" uid="uid://cyon3k37isiov" path="res://Sprites/VikingHurt.png" id="5_vyflg"]
@@ -476,16 +477,18 @@ animations = [{
 size = Vector2(64, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k67rw"]
-size = Vector2(71, 192)
+size = Vector2(63, 131)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lfd4k"]
-size = Vector2(111, 104)
+size = Vector2(87, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2eew"]
-size = Vector2(143, 34)
+size = Vector2(173, 34)
 
 [node name="PlayerCharacter" type="CharacterBody2D" node_paths=PackedStringArray("jumpHitbox", "fwdAtkHitbox", "stabHitbox", "anim")]
 collision_layer = 0
+floor_constant_speed = true
+floor_max_angle = 1.39626
 script = ExtResource("1_28tex")
 jumpHitbox = NodePath("JumpHit/JumpHitShape")
 fwdAtkHitbox = NodePath("SlashHit/SlashHitShape")
@@ -519,17 +522,19 @@ offset_bottom = 20.0
 color = Color(1, 1, 0, 1)
 script = ExtResource("2_wgpxs")
 
+[node name="MainMenu" parent="Camera2D" instance=ExtResource("3_qyobv")]
+visible = false
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerChar")]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_mlcwx")
-animation = &"Jump"
+animation = &"Idle"
 script = ExtResource("12_57h43")
 playerChar = NodePath("..")
 
 [node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
+collision_layer = 10
+collision_mask = 10
 script = ExtResource("12_n5cjr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -537,30 +542,30 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_ox67b")
 
 [node name="JumpHit" type="Area2D" parent="."]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("14_yh77f")
 
 [node name="JumpHitShape" type="CollisionShape2D" parent="JumpHit"]
-position = Vector2(68.5, -8)
+position = Vector2(64.5, -25.5)
 shape = SubResource("RectangleShape2D_k67rw")
 
 [node name="SlashHit" type="Area2D" parent="."]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("14_yh77f")
 
 [node name="SlashHitShape" type="CollisionShape2D" parent="SlashHit"]
-position = Vector2(88.5, 12)
+position = Vector2(76.5, 16.5)
 shape = SubResource("RectangleShape2D_lfd4k")
 
 [node name="StabHit" type="Area2D" parent="."]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("14_yh77f")
 
 [node name="StabHitShape" type="CollisionShape2D" parent="StabHit"]
-position = Vector2(104.5, 7)
+position = Vector2(78.5, 7)
 shape = SubResource("RectangleShape2D_a2eew")
 
 [connection signal="OnStaminaChanged" from="." to="Camera2D/StaminaBarOut/StaminaBarIn" method="_on_player_character_on_stamina_changed"]

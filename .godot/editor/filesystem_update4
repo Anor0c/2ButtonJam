@@ -4,7 +4,11 @@ res://Misc/tile_map.tres
 res://Scenes/player_character.tscn
 res://Scenes/enemy_test.tscn
 res://Scenes/spike_trap.tscn
-res://Scripts/PlayerChar.gd
-res://Scripts/PowerUp.gd
-res://Scripts/PowerUpSpeed.gd
 res://Scenes/slippers.tscn
+res://Scripts/PowerUp.gd
+res://Scripts/Hurtbox.gd
+res://Scripts/PowerUpSpeed.gd
+res://Scenes/main_menu.tscn
+res://Scripts/PlayerChar.gd
+res://Scripts/PlayerAnim.gd
+res://FlatTest.tscn
