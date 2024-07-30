@@ -133,6 +133,6 @@ shape = SubResource("RectangleShape2D_2aje8")
 position = Vector2(-16, -18)
 sprite_frames = SubResource("SpriteFrames_0e4cd")
 animation = &"Idle"
-frame_progress = 0.324816
+frame_progress = 0.558208
 script = ExtResource("4_4ktcx")
 enemyBody = NodePath("../CharacterBody2D")
