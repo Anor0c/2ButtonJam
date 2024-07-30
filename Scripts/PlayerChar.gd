@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 signal OnStaminaChanged(currentStamina:float, maxStamina:float)
 signal OnHealthChanged(currentHealth : int, maxHealth : int)
+signal OnPlayerDied
 
 @export_category("PlayerStats")
 @export var PlayerSpeed : float = 300.0
@@ -26,16 +27,19 @@ var currentHealth : int= 1
 var sleepCounter : int= 0
 
 
-@onready var jumpHitbox:CollisionShape2D = get_node("JumpHit/JumpHitShape")
-@onready var fwdAtkHitbox:CollisionShape2D = get_node("SlashHit/SlashHitShape")
-@onready var turnHitbox: CollisionShape2D = get_node("StabHit/StabHitShape")
+@onready var jumpHitbox:GDHitbox = get_node("JumpHit")
+@onready var fwdAtkHitbox:GDHitbox = get_node("SlashHit")
+@onready var turnHitbox: GDHitbox = get_node("StabHit")
+@onready var hurtBox : Hurtbox = get_node("Hurtbox")
 
 @onready var anim : AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var cam : Camera2D = get_node("Camera2D")
-
+@onready var deathScreen : CanvasLayer = get_node("Camera2D/DeathMenu")
+@onready var winScreen : CanvasLayer = get_node("Camera2D/WinMenu")
 func _ready() ->void:
 	currentStamina = MaxStamina
 	currentHealth = MaxHealth
+	cam.make_current()
 
 func _physics_process(delta : float)->void:
 #Gravity
@@ -43,6 +47,8 @@ func _physics_process(delta : float)->void:
 		velocityInternal.y += gravity * delta
 		anim.wasInAir = true
 		anim.isRunning = false
+		if not anim.isJumping and not anim.isHurt and not anim.isSleeping: 
+			anim.FallAnim()
 	else  :
 		anim.isJumping = false
 		anim.wasInAir = false
@@ -102,8 +108,7 @@ func _physics_process(delta : float)->void:
 		anim.canIdle = true
 	velocity = velocityInternal
 	move_and_slide()
-	print ("Speed : ", PlayerSpeed, ", Velocity : ", velocity, ", Internal Velocity : ", velocityInternal)
-
+	#print ("Speed : ", PlayerSpeed, ", Velocity : ", velocity, ", Internal Velocity : ", velocityInternal)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta : float)->void:
@@ -140,33 +145,40 @@ func TakeDamage (Damage : float) ->void :
 	emit_signal("OnHealthChanged", currentHealth, MaxHealth)
 	print(currentHealth)
 	if (currentHealth == 0):
+		Death()
 		anim.DeathAnim()
 	else:
 		anim.HurtAnim()
 
+func Death()->void: 
+	hurtBox.queue_free()
+	emit_signal("OnPlayerDied")
+	canMove =false 
+	currentStamina = 0
+	
 #region AnimSignals
 func _on_animated_sprite_2d_state_changed(animState : StringName)->void:
-	if animState == "Hurt":
-		set_deferred("fwdAtkHitbox.disabled", true)  
-		set_deferred("turnHitbox.disabled", true) 
-		set_deferred("jumpHitbox.disabled", true) 
+	if animState == "Hurt" or animState == "Run" or animState=="Sleep" or animState == "Falling":
+		set_deferred("fwdAtkHitbox.monitorable", false)  
+		set_deferred("turnHitbox.monitorable", false) 
+		set_deferred("jumpHitbox.monitorable", false) 
 
 	if animState == "Jump":
-		fwdAtkHitbox.disabled = true
-		turnHitbox.disabled = true
-		jumpHitbox.disabled = false
+		fwdAtkHitbox.monitorable = false
+		turnHitbox.monitorable = false
+		jumpHitbox.monitorable = true
 
 	if animState == "Slash": 
-		fwdAtkHitbox.disabled = false
+		fwdAtkHitbox.monitorable = true
 
 	if animState == "TurnAttack": 
-		fwdAtkHitbox.disabled = true
-		turnHitbox.disabled = false
+		fwdAtkHitbox.monitorable = false
+		turnHitbox.monitorable = true
 
-	if animState == "Run" or animState=="Sleep":
-		fwdAtkHitbox.disabled = true
-		turnHitbox.disabled = true
-		jumpHitbox.disabled = true
+	#if animState == "Run" or animState=="Sleep":
+		#fwdAtkHitbox.disabled = true
+		#turnHitbox.disabled = true
+		#jumpHitbox.disabled = true
 
 
 func _on_animated_sprite_2d_state_looped(animState:StringName)->void:
@@ -185,11 +197,11 @@ func _on_animated_sprite_2d_state_looped(animState:StringName)->void:
 
 func _on_animated_sprite_2d_state_ended(animState:StringName)->void:
 	if(animState == "Slash"):
-		fwdAtkHitbox.disabled = true
+		fwdAtkHitbox.monitorable = false
 	if(animState == "TurnAttack"):
-		turnHitbox.disabled = true
+		turnHitbox.monitorable = false
 	if(animState == "Jump"):
-		jumpHitbox.disabled = true
+		jumpHitbox.monitorable = false
 	if (animState == "Hurt"):
 		canMove = true
 

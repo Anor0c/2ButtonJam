@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://4nxwx5yy6vfi"]
+[gd_scene load_steps=4 format=3 uid="uid://4nxwx5yy6vfi"]
 
+[ext_resource type="Theme" uid="uid://cnv3kjivwmycq" path="res://UI/UICommon.tres" id="1_aslgy"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_ok0ln"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rao0v"]
 line_spacing = 6.0
-font_size = 26
+font_size = 20
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -20,6 +21,7 @@ offset_right = -1152.0
 offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_aslgy")
 script = ExtResource("1_ok0ln")
 focusButton = NodePath("PlayButton")
 creditLabel = NodePath("Label")
@@ -63,17 +65,14 @@ text = "Quit"
 
 [node name="Label" type="Label" parent="MainMenuControl"]
 visible = false
-layout_mode = 0
-offset_left = 178.0
-offset_top = 141.0
-offset_right = 960.0
-offset_bottom = 562.0
+layout_mode = 1
+offset_right = 1120.0
+offset_bottom = 644.0
 text = "A game by Anoroc and Koda
 
-    Assets Used
-
-BG = Kenney's Game Assets all in 1 by Kenney
+    Assets Used : 
 Animations Player = Pixel Art Character Asset Pack by ZeggyGames
+BG = Kenney's Game Assets all in 1 by Kenney
 Pixel Font = Pixeled by OmegaPC777
 "
 label_settings = SubResource("LabelSettings_rao0v")

@@ -1,0 +1,138 @@
+[gd_scene load_steps=21 format=3 uid="uid://c6ajjnwthj4lw"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_x1jub"]
+[ext_resource type="Script" path="res://Scripts/enemy_pattern.gd" id="2_u2bhr"]
+[ext_resource type="Script" path="res://Scripts/EnemySprite.gd" id="4_4ktcx"]
+[ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="5_0jeoh"]
+[ext_resource type="Texture2D" uid="uid://du4gbbm4481tr" path="res://Sprites/Monster 2-Sheet.png" id="5_y0ucm"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="6_onbe3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omq1g"]
+radius = 19.0
+height = 80.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7nme"]
+size = Vector2(89, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2aje8"]
+size = Vector2(83, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii5rb"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpeh6"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjwyy"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0mff"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8naxy"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnbco"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol177"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huidq"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqbia"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(1600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wwes"]
+atlas = ExtResource("5_y0ucm")
+region = Rect2(1800, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0e4cd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii5rb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpeh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjwyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0mff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8naxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnbco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol177")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huidq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqbia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wwes")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[node name="EnemyFlying" type="Node2D"]
+position = Vector2(776, 408)
+script = ExtResource("1_x1jub")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("2_u2bhr")
+paternLocationArray = Array[Vector2]([Vector2(150, 0), Vector2(-180, 0)])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 17)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_omq1g")
+
+[node name="Hurtbox" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_0jeoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Hurtbox"]
+position = Vector2(-0.5, 15)
+shape = SubResource("RectangleShape2D_n7nme")
+
+[node name="GDHitbox" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("6_onbe3")
+
+[node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/GDHitbox"]
+position = Vector2(-0.5, 11)
+shape = SubResource("RectangleShape2D_2aje8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("enemyBody")]
+position = Vector2(-16, -18)
+sprite_frames = SubResource("SpriteFrames_0e4cd")
+animation = &"Idle"
+frame_progress = 0.324816
+script = ExtResource("4_4ktcx")
+enemyBody = NodePath("../CharacterBody2D")

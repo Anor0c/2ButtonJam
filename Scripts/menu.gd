@@ -5,16 +5,17 @@ extends Control
 @onready var creditButton : Button = get_node("CreditButton")
 @onready var quitButton : Button = get_node("QuitButton")
 @onready var backButton : Button = get_node("Label/BackButton")
-@onready var retryButton : Button = get_node("RetryButton")
 
 @export var creditLabel : Label
 
 func _ready()->void:
+	if not MenuManager.showMainMenu : queue_free()
 	focusButton.grab_focus()
 	
 
 func _on_play_button_pressed()->void:
-	self.visible = false
+	MenuManager.showMainMenu = false
+	queue_free()
 
 
 func _on_credit_button_pressed()->void:
@@ -36,8 +37,3 @@ func _on_back_button_pressed()->void:
 	quitButton.visible = true
 	focusButton.grab_focus()
 
-
-func _on_retry_button_pressed()->void:
-	self.visible = false 
-	get_tree().reload_current_scene()
-	

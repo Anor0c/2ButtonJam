@@ -16,7 +16,7 @@ var isHurt : bool= false
 @export var playerChar : CharacterBody2D
 
 func _ready()->void:
-	IdleAnim()
+	SleepAnim()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,11 +28,18 @@ func _process(_delta : float)->void:
 		isIdle = false;
 
 func _physics_process(_delta: float)->void:
-	if (isRunning or isJumping or not playerChar.is_on_floor() or isSleeping or isAttacking or isHurt):
+	if (isRunning 
+	or isJumping 
+	or not playerChar.is_on_floor() 
+	or isSleeping 
+	or isAttacking 
+	or isHurt 
+	or not playerChar.canMove):
 		canIdle = false; 
 	else:
 		canIdle = true;
 		IdleAnim();
+	#print (canIdle)
 
 func IdleAnim()->void:
 	if  not canIdle or isIdle : return
@@ -42,9 +49,11 @@ func IdleAnim()->void:
 	isIdle = true;
 
 func RunAnim()->void:
-	if isRunning : return
-	stop()
-	play("Run")
+	#if isRunning : return
+	#stop()
+	if playerChar.PlayerSpeed>=500: play("Run") 
+	else : play("Walk")
+
 
 func JumpAnim()->void:
 	if isJumping : return
@@ -73,6 +82,9 @@ func DeathAnim()->void:
 	stop()
 	play("Death")
 
+func FallAnim()->void:
+	play("Falling")
+
 
 
 
@@ -80,9 +92,10 @@ func _on_animation_changed() ->void:
 	print (animation, " Switch")
 	emit_signal("StateChanged", animation)
 	if animation == "Hurt":
-		playerChar.canMove = false;
-		isHurt = true;
-		isRunning = false;
+		playerChar.canMove = false
+		isHurt = true
+		isRunning = false
+		isAttacking = false
 
 	 
 	if animation == "Jump": 

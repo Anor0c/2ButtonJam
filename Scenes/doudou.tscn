@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyhgnuysmbhr5"]
+
+[ext_resource type="Script" path="res://PowerUpScore.gd" id="1_ogpmu"]
+[ext_resource type="Texture2D" uid="uid://cy634m21d8842" path="res://icon.svg" id="2_meb22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikm0q"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxk0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_meb22")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Doudou" type="Area2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ogpmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ikm0q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qxk0r")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

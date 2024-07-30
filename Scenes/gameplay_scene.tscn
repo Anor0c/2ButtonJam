@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtwgbnxpbeg87"]
+[gd_scene load_steps=13 format=3 uid="uid://dtwgbnxpbeg87"]
 
 [ext_resource type="PackedScene" uid="uid://coj0wsgkpk8g6" path="res://Scenes/player_character.tscn" id="1_h86yp"]
 [ext_resource type="PackedScene" uid="uid://cerrtxb4n448s" path="res://Scenes/tile_map.tscn" id="2_r8p05"]
 [ext_resource type="PackedScene" uid="uid://cl3rfskwuvtk2" path="res://Scenes/spike_trap.tscn" id="3_11axk"]
-[ext_resource type="PackedScene" uid="uid://bop0dm4vu8yep" path="res://Scenes/enemy_test.tscn" id="4_6rvnk"]
+[ext_resource type="PackedScene" uid="uid://bop0dm4vu8yep" path="res://Scenes/enemy_flying.tscn" id="3_hgpvq"]
 [ext_resource type="FontFile" uid="uid://c53f33m0xhv8j" path="res://UI/Pixeled.ttf" id="6_81uh2"]
 [ext_resource type="Script" path="res://Scripts/WinLabel.gd" id="7_4tvqm"]
+[ext_resource type="PackedScene" uid="uid://4nxwx5yy6vfi" path="res://Scenes/main_menu.tscn" id="7_dqcjw"]
 [ext_resource type="PackedScene" uid="uid://dw5stllo87tln" path="res://Scenes/slippers.tscn" id="7_qd4np"]
+[ext_resource type="PackedScene" uid="uid://dyhgnuysmbhr5" path="res://Scenes/doudou.tscn" id="9_s56ud"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3xbpq"]
 font = ExtResource("6_81uh2")
@@ -41,25 +43,25 @@ position = Vector2(1200, 280)
 [node name="SpikeTrap2" parent="." instance=ExtResource("3_11axk")]
 position = Vector2(4920, 196)
 
-[node name="Enemy" parent="." instance=ExtResource("4_6rvnk")]
+[node name="Enemy" parent="." instance=ExtResource("3_hgpvq")]
 position = Vector2(1208, 140)
 
-[node name="Enemy2" parent="." instance=ExtResource("4_6rvnk")]
+[node name="Enemy2" parent="." instance=ExtResource("3_hgpvq")]
 position = Vector2(2040, 200)
 
-[node name="Enemy3" parent="." instance=ExtResource("4_6rvnk")]
+[node name="Enemy3" parent="." instance=ExtResource("3_hgpvq")]
 position = Vector2(2280, 200)
 
-[node name="Enemy4" parent="." instance=ExtResource("4_6rvnk")]
+[node name="Enemy4" parent="." instance=ExtResource("3_hgpvq")]
 position = Vector2(4200, -224)
 
-[node name="Enemy5" parent="." instance=ExtResource("4_6rvnk")]
+[node name="Enemy5" parent="." instance=ExtResource("3_hgpvq")]
 position = Vector2(3264, 216)
 
-[node name="Enemy6" parent="." instance=ExtResource("4_6rvnk")]
+[node name="Enemy6" parent="." instance=ExtResource("3_hgpvq")]
 position = Vector2(3576, 208)
 
-[node name="Enemy7" parent="." instance=ExtResource("4_6rvnk")]
+[node name="Enemy7" parent="." instance=ExtResource("3_hgpvq")]
 position = Vector2(3880, 208)
 
 [node name="Label" type="Label" parent="."]
@@ -96,9 +98,24 @@ text = "Space ^"
 label_settings = SubResource("LabelSettings_lmk3v")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_h86yp")]
-position = Vector2(160, 172)
+position = Vector2(152, 292)
+
+[node name="DeathMenu" parent="PlayerCharacter/Camera2D" index="1" node_paths=PackedStringArray("mainMenu")]
+mainMenu = NodePath("../../../MainMenu")
+
+[node name="WinMenu" parent="PlayerCharacter/Camera2D" index="2" node_paths=PackedStringArray("mainMenu")]
+mainMenu = NodePath("../../../MainMenu")
+
+[node name="MainMenu" parent="." instance=ExtResource("7_dqcjw")]
+visible = false
 
 [node name="Slippers" parent="." instance=ExtResource("7_qd4np")]
-position = Vector2(3200, 68)
+position = Vector2(3200, 52)
+
+[node name="Doudou" parent="." instance=ExtResource("9_s56ud")]
+position = Vector2(1606, 245)
 
 [connection signal="area_entered" from="Label/Area2D" to="Label" method="_on_area_2d_area_entered"]
+
+[editable path="PlayerCharacter"]
+[editable path="PlayerCharacter/Camera2D/WinMenu"]

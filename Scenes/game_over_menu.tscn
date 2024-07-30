@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlxt8ivjf1r2"]
+[gd_scene load_steps=5 format=3 uid="uid://dlxt8ivjf1r2"]
 
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_5fno1"]
+[ext_resource type="Script" path="res://Scripts/GameOverMenu.gd" id="1_f08y8"]
+[ext_resource type="Theme" uid="uid://cnv3kjivwmycq" path="res://UI/UICommon.tres" id="2_d2w73"]
+
+[sub_resource type="Theme" id="Theme_fogc1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wc3al"]
 font_size = 80
@@ -8,16 +11,16 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="DeathMenu" type="CanvasLayer"]
+script = ExtResource("1_f08y8")
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("focusButton")]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5fno1")
-focusButton = NodePath("RetryButton")
+theme = ExtResource("2_d2w73")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
@@ -38,6 +41,8 @@ offset_right = 0.191956
 offset_bottom = -0.136017
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Retry"
 
 [node name="QuitButton" type="Button" parent="Control"]
@@ -53,6 +58,9 @@ offset_right = 0.191956
 offset_bottom = 128.864
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("../RetryButton")
+focus_neighbor_bottom = NodePath("../RetryButton")
+theme = SubResource("Theme_fogc1")
 text = "Quit"
 
 [node name="Label" type="Label" parent="Control"]
@@ -62,13 +70,13 @@ anchor_left = 0.352
 anchor_top = 0.154
 anchor_right = 0.652
 anchor_bottom = 0.324
-offset_left = 0.495972
-offset_top = 0.207993
-offset_right = -0.104004
-offset_bottom = 0.0480042
+offset_left = -106.504
+offset_top = -67.792
+offset_right = 107.896
+offset_bottom = 46.048
 grow_horizontal = 2
 text = "You Died"
 label_settings = SubResource("LabelSettings_wc3al")
 
-[connection signal="pressed" from="Control/RetryButton" to="Control" method="_on_retry_button_pressed"]
-[connection signal="pressed" from="Control/QuitButton" to="Control" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/QuitButton" to="." method="_on_quit_button_pressed"]

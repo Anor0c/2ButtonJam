@@ -1,10 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw5stllo87tln"]
+[gd_scene load_steps=14 format=3 uid="uid://dw5stllo87tln"]
 
 [ext_resource type="Script" path="res://Scripts/PowerUpSpeed.gd" id="1_pvhgx"]
-[ext_resource type="Texture2D" uid="uid://cy634m21d8842" path="res://icon.svg" id="2_vifrb"]
+[ext_resource type="Texture2D" uid="uid://daga0av6afo8i" path="res://Sprites/Pantoufle bonus-Sheet.png" id="2_67pa1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5o3t"]
-size = Vector2(38, 38)
+size = Vector2(38, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp4kr"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpxnl"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57ueu"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xewg"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c70n5"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87oyr"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqfub"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26dld"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka4c8"]
+atlas = ExtResource("2_67pa1")
+region = Rect2(1600, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j35c3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp4kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpxnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57ueu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xewg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c70n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87oyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqfub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26dld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka4c8")
+}],
+"loop": true,
+"name": &"Slippers",
+"speed": 10.0
+}]
 
 [node name="Slippers" type="Area2D"]
 collision_layer = 0
@@ -13,10 +84,12 @@ monitorable = false
 script = ExtResource("1_pvhgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_y5o3t")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_vifrb")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j35c3")
+animation = &"Slippers"
+autoplay = "Slippers"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
