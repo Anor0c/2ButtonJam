@@ -1,3 +1,6 @@
 BG = Kenney's Game Assets all in 1 by Kenney
 Animations Player = FREE Pixel Art Character Asset Pack by ZeggyGames
 Pixel Font = Pixeled by OmegaPC777
+Legacy Adventure Pack - VILLAGE by Anokolisa
+Row House Tileset by Guardian
+House-tileset by maschiaT

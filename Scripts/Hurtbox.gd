@@ -8,7 +8,7 @@ func _ready()->void :
 
 
 func on_gdhitbox_hit(col : Area2D)->void :
-	print (col.owner)
+	print (col)
 	if owner.has_method("TakeDamage") and col is GDHitbox:
 		owner.TakeDamage (col.damage)
 	else :

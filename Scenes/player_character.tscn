@@ -1,13 +1,16 @@
-[gd_scene load_steps=95 format=3 uid="uid://coj0wsgkpk8g6"]
+[gd_scene load_steps=99 format=3 uid="uid://coj0wsgkpk8g6"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerChar.gd" id="1_28tex"]
 [ext_resource type="Script" path="res://Scripts/StaminaBarIn.gd" id="2_wgpxs"]
-[ext_resource type="Script" path="res://Scenes/HealthBarInner.gd" id="4_v4xjs"]
+[ext_resource type="Theme" uid="uid://cnv3kjivwmycq" path="res://UI/UICommon.tres" id="4_fd7d3"]
 [ext_resource type="PackedScene" uid="uid://dlxt8ivjf1r2" path="res://Scenes/game_over_menu.tscn" id="4_ynk8f"]
+[ext_resource type="Script" path="res://Scripts/HealthBarInner.gd" id="5_el6x0"]
 [ext_resource type="Texture2D" uid="uid://462wvuirm4u2" path="res://Sprites/KidSheet/Pyjama dead-Sheet.png" id="5_pv7hc"]
 [ext_resource type="Texture2D" uid="uid://bqbqi83weok2w" path="res://Sprites/KidSheet/Pyjama attack down-Sheet.png" id="5_qjapa"]
 [ext_resource type="Texture2D" uid="uid://bqks52t6cnt71" path="res://Sprites/KidSheet/Pyjama attack return-Sheet.png" id="6_82j5a"]
 [ext_resource type="Texture2D" uid="uid://bo2vg0hs6gpen" path="res://Sprites/KidSheet/Pyjama hurt 2-Sheet.png" id="6_e7ddw"]
+[ext_resource type="Texture2D" uid="uid://b4pmqsj7us14s" path="res://Sprites/Plushy_1.png" id="6_ojo16"]
+[ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_ol1rk"]
 [ext_resource type="Texture2D" uid="uid://bi1avrbowrw00" path="res://Sprites/VikingLand.png" id="7_sxbuh"]
 [ext_resource type="Texture2D" uid="uid://cai3smhhhsww8" path="res://Sprites/KidSheet/Pyjama idle-Sheet.png" id="8_6dfk6"]
 [ext_resource type="Texture2D" uid="uid://dtyqcnnri23rj" path="res://Sprites/KidSheet/Pyjama run-Sheet.png" id="9_8qhtj"]
@@ -20,6 +23,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vj32y"]
 size = Vector2(63, 114.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrnlt"]
+font_size = 33
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_peq5g"]
 atlas = ExtResource("5_pv7hc")
@@ -590,7 +598,7 @@ size = Vector2(203, 58)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 collision_layer = 0
-floor_constant_speed = true
+floor_stop_on_slope = false
 floor_max_angle = 1.39626
 script = ExtResource("1_28tex")
 
@@ -608,6 +616,7 @@ drag_right_margin = 0.1
 editor_draw_drag_margin = true
 
 [node name="StaminaBarOut" type="ColorRect" parent="Camera2D"]
+z_index = 5
 layout_direction = 2
 offset_left = -50.0
 offset_top = -105.0
@@ -616,6 +625,7 @@ offset_bottom = -80.0
 color = Color(0, 0, 0, 1)
 
 [node name="StaminaBarIn" type="ColorRect" parent="Camera2D/StaminaBarOut"]
+z_index = 5
 layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
@@ -633,17 +643,18 @@ visible = false
 [node name="Label" parent="Camera2D/WinMenu/Control" index="3"]
 text = "You Won!!"
 
-[node name="HealthLayer" type="CanvasLayer" parent="Camera2D"]
+[node name="UILayer" type="CanvasLayer" parent="Camera2D"]
 
-[node name="Control" type="Control" parent="Camera2D/HealthLayer"]
+[node name="Control" type="Control" parent="Camera2D/UILayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_fd7d3")
 
-[node name="HealthBarOuter" type="ColorRect" parent="Camera2D/HealthLayer/Control"]
+[node name="HealthBarOuter" type="ColorRect" parent="Camera2D/UILayer/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.026
@@ -656,7 +667,7 @@ offset_right = 0.111969
 offset_bottom = 0.103996
 color = Color(0, 0, 0, 1)
 
-[node name="HealthBarInner" type="ColorRect" parent="Camera2D/HealthLayer/Control/HealthBarOuter"]
+[node name="HealthBarInner" type="ColorRect" parent="Camera2D/UILayer/Control/HealthBarOuter"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.018
@@ -666,7 +677,32 @@ anchor_bottom = 0.75
 offset_left = -0.0400004
 offset_right = 0.039978
 color = Color(1, 0, 0, 1)
-script = ExtResource("4_v4xjs")
+script = ExtResource("5_el6x0")
+
+[node name="DoudouIcon" type="TextureRect" parent="Camera2D/UILayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.66
+offset_top = -150.0
+offset_right = 95.3401
+offset_bottom = 150.0
+grow_horizontal = 0
+texture = ExtResource("6_ojo16")
+
+[node name="ScoreLabel" type="Label" parent="Camera2D/UILayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_right = -87.9998
+offset_bottom = 93.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_nrnlt")
+script = ExtResource("7_ol1rk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerChar")]
 z_index = 1
@@ -688,6 +724,8 @@ shape = SubResource("RectangleShape2D_ox67b")
 [node name="JumpHit" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
+monitoring = false
+monitorable = false
 script = ExtResource("14_yh77f")
 
 [node name="JumpHitShape" type="CollisionShape2D" parent="JumpHit"]
@@ -697,6 +735,8 @@ shape = SubResource("RectangleShape2D_k67rw")
 [node name="SlashHit" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
+monitoring = false
+monitorable = false
 script = ExtResource("14_yh77f")
 
 [node name="SlashHitShape" type="CollisionShape2D" parent="SlashHit"]
@@ -706,13 +746,15 @@ shape = SubResource("RectangleShape2D_lfd4k")
 [node name="StabHit" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
+monitoring = false
+monitorable = false
 script = ExtResource("14_yh77f")
 
 [node name="StabHitShape" type="CollisionShape2D" parent="StabHit"]
-position = Vector2(-0.5, -8)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_a2eew")
 
-[connection signal="OnHealthChanged" from="." to="Camera2D/HealthLayer/Control/HealthBarOuter/HealthBarInner" method="_on_player_character_on_health_changed"]
+[connection signal="OnHealthChanged" from="." to="Camera2D/UILayer/Control/HealthBarOuter/HealthBarInner" method="_on_player_character_on_health_changed"]
 [connection signal="OnPlayerDied" from="." to="Camera2D/DeathMenu" method="_on_game_over"]
 [connection signal="OnStaminaChanged" from="." to="Camera2D/StaminaBarOut/StaminaBarIn" method="_on_player_character_on_stamina_changed"]
 [connection signal="StateChanged" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_state_changed"]

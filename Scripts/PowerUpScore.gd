@@ -7,5 +7,5 @@ func _on_area_entered(col:Area2D)->void:
 	
 func PowerUpCollected(_player : CharacterBody2D)->void:
 	if _player is PlayerChar : 
-		ScoreManager.score += 1
+		ScoreManager.IncrementScore()
 		print (ScoreManager.score)

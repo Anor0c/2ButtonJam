@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cerrtxb4n448s"]
 
-[ext_resource type="TileSet" uid="uid://cft0nn8n6d1x" path="res://Misc/tile_map.tres" id="1_2hxpo"]
+[ext_resource type="TileSet" uid="uid://f7hucnkqunx5" path="res://Misc/PropTileMap.tres" id="1_dp5vx"]
 
 [node name="TileMap" type="TileMap"]
-tile_set = ExtResource("1_2hxpo")
+tile_set = ExtResource("1_dp5vx")
 format = 2
 layer_0/name = "Background"
 layer_1/name = "Platforms"

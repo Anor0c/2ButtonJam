@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED : float = 300.0
+const Speed : float = 300.0
 @export var paternLocationArray : Array[Vector2]
 var currentPaternLocation : Vector2
 var currentLocationIndex : int = 0
@@ -21,7 +21,7 @@ func choose_pattern_location() ->void:
 func _physics_process(_delta : float)->void:
 	direction = clamp (self.position.x - currentPaternLocation.x, -1, 1) 
 	if direction > 0.3 or direction < -0.3:
-		velocity.x = -direction * SPEED
+		velocity.x = -direction * Speed
 	else:
 		choose_pattern_location()
 	move_and_slide()

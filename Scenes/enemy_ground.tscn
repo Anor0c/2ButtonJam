@@ -95,14 +95,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="EnemyFlying" type="Node2D"]
-position = Vector2(776, 408)
+[node name="EnemyGround" type="Node2D"]
 script = ExtResource("1_x1jub")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 0
 collision_mask = 0
-motion_mode = 1
 script = ExtResource("2_u2bhr")
 paternLocationArray = Array[Vector2]([Vector2(150, 0), Vector2(-180, 0)])
 
@@ -136,3 +134,5 @@ animation = &"Idle"
 frame_progress = 0.558208
 script = ExtResource("4_4ktcx")
 enemyBody = NodePath("../CharacterBody2D")
+
+[connection signal="EnemyDeath" from="." to="AnimatedSprite2D" method="_on_enemy_death"]

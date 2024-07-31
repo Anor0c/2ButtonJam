@@ -118,3 +118,5 @@ script = ExtResource("6_7h56a")
 
 [node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/GDHitbox"]
 shape = SubResource("RectangleShape2D_2aje8")
+
+[connection signal="EnemyDeath" from="." to="CharacterBody2D/AnimatedSprite2D" method="_on_enemy_death"]

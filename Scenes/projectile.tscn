@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctqo23mub4u6w"]
+
+[ext_resource type="Script" path="res://Scripts/Projectile.gd" id="1_shs3x"]
+[ext_resource type="Texture2D" uid="uid://ccxf8uij402r5" path="res://Sprites/Projectible-Sheet.png" id="2_i5gyg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpfla"]
+radius = 13.3417
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iffty"]
+atlas = ExtResource("2_i5gyg")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imom2"]
+atlas = ExtResource("2_i5gyg")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wh4"]
+atlas = ExtResource("2_i5gyg")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n78tx"]
+atlas = ExtResource("2_i5gyg")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxg2i"]
+atlas = ExtResource("2_i5gyg")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlux8"]
+atlas = ExtResource("2_i5gyg")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0xgf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iffty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imom2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n78tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxg2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlux8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_shs3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3)
+shape = SubResource("CircleShape2D_lpfla")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x0xgf")
+autoplay = "default"
+frame_progress = 0.409404
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
