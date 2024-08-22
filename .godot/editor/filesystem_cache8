@@ -1,127 +1,96 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1722532864
-AdhesiveWombat - Night Shade.mp3::AudioStreamMP3::8698787699140428507::1722518340::1722525140::1::::<><>::
-Background_UI.png::CompressedTexture2D::8914704989140062688::1722532864::1722532864::1::::<><>::
-Button.png::CompressedTexture2D::2247156122854881709::1722532864::1722532864::1::::<><>::
-Credits.txt::TextFile::-1::1722518594::0::1::::<><>::
-explosion4.ogg::AudioStreamOggVorbis::7635169975769617708::1722517107::1722517107::1::::<><>::
-export_presets.cfg::TextFile::-1::1722454412::0::1::::<><>::
-footstep_carpet_000.ogg::AudioStreamOggVorbis::5750589169494643179::1722517751::1722517751::1::::<><>::
-footstep_carpet_001.ogg::AudioStreamOggVorbis::2330759337872986778::1722517751::1722517751::1::::<><>::
-footstep_carpet_002.ogg::AudioStreamOggVorbis::8392578950111200648::1722517751::1722517751::1::::<><>::
-gameover2.ogg::AudioStreamOggVorbis::1611169226454894758::1722517172::1722518400::1::::<><>::
-House-bathroom-Sheet2-export.png::CompressedTexture2D::493607685009307000::1722441306::1722441306::1::::<><>::
-House-kitchen-Sheet2-export.png::CompressedTexture2D::2465482654804051515::1722441306::1722441306::1::::<><>::
-House-living room-Sheet-export.png::CompressedTexture2D::9107940911739349658::1722441306::1722441306::1::::<><>::
-House-tileset-Sheet-export.png::CompressedTexture2D::8282410459097797847::1722441306::1722441306::1::::<><>::
-hurt1.ogg::AudioStreamOggVorbis::3523858819228553389::1722524112::1722524113::1::::<><>::
-icon.svg::CompressedTexture2D::6523121862072122545::1722002432::1722002432::1::::<><>::
-Line_button.png::CompressedTexture2D::4181194738106161719::1722532864::1722532864::1::::<><>::
-Lose_title.png::CompressedTexture2D::1328256655731397385::1722532863::1722532864::1::::<><>::
-pickup3.ogg::AudioStreamOggVorbis::2672435413445736651::1722517001::1722517001::1::::<><>::
-Plushy_1.png::CompressedTexture2D::1849070925176712040::1722532863::1722532864::1::::<><>::
-Plushy_2.png::CompressedTexture2D::924052279659142671::1722532863::1722532864::1::::<><>::
-Plushy_3.png::CompressedTexture2D::2378276372632986415::1722532863::1722532864::1::::<><>::
-Plushy_4.png::CompressedTexture2D::4341098506929105055::1722532863::1722532864::1::::<><>::
-Projectible-Sheet.png::CompressedTexture2D::99609406808122938::1722532864::1722532864::1::::<><>::
-RowHouseTileSet-export.png::CompressedTexture2D::3136233554286806400::1722441306::1722441306::1::::<><>::
-secret3.ogg::AudioStreamOggVorbis::2647249748428880263::1722517287::1722517287::1::::<><>::
-Sigh Sound Effect.mp3::AudioStreamMP3::2758285461563389201::1722527125::1722527186::1::::<><>::
-The Journey Is The Treasure [Copyright Free Music]  chill beats #chiptune.mp3::AudioStreamMP3::6354909115248597306::1722518267::1722518267::1::::<><>::
-Tiles-export.png::CompressedTexture2D::1933614379695798909::1722442872::1722442873::1::::<><>::
-Title.png::CompressedTexture2D::1228429817050561836::1722532850::1722532850::1::::<><>::
-Win_title.png::CompressedTexture2D::948994114875625542::1722532864::1722532864::1::::<><>::
-woosh1.ogg::AudioStreamOggVorbis::7177818546351595888::1722530273::1722530274::1::::<><>::
-woosh2.ogg::AudioStreamOggVorbis::4892636530965816326::1722530273::1722530274::1::::<><>::
-woosh3.ogg::AudioStreamOggVorbis::4157777974814352105::1722530273::1722530274::1::::<><>::
-woosh4.ogg::AudioStreamOggVorbis::1052152443657113672::1722530273::1722530274::1::::<><>::
-woosh5.ogg::AudioStreamOggVorbis::8362938075149720731::1722530273::1722530274::1::::<><>::
-woosh6.ogg::AudioStreamOggVorbis::7548606333900464883::1722530273::1722530274::1::::<><>::
-woosh7.ogg::AudioStreamOggVorbis::4045324613452080058::1722530273::1722530274::1::::<><>::
-woosh8.ogg::AudioStreamOggVorbis::7521008893796070937::1722530273::1722530274::1::::<><>::
-::res://Misc/::1722525852
-PropTileMap.tres::TileSet::417465166753233152::1722525851::0::1::::<><>::uid://c8ccbdce83w7f::::res://Sprites/House-bedroom-Sheet-export.png<>uid://hbdv8kjim8do::::res://House-bathroom-Sheet2-export.png<>uid://bbekey2x3vms6::::res://House-kitchen-Sheet2-export.png<>uid://d207prjykoss5::::res://House-living room-Sheet-export.png<>uid://dqacdciw3pgcd::::res://House-tileset-Sheet-export.png<>uid://bkxhkqsrv1uk3::::res://RowHouseTileSet-export.png<>uid://2swl1md5wm0l::::res://Tiles-export.png
-tile_map.tres::TileSet::151898548160522303::1722443809::0::1::::<><>::uid://boeur4qer7cws::::res://Sprites/SpritesheetBeeg.png
-::res://Scenes/::1722532838
-bind_rect.tscn::PackedScene::5583579946468987384::1722002432::0::1::::<><>::res://Scripts/BindRect.cs<>res://Scripts/BindInput.cs
-doudou.tscn::PackedScene::8858633548324091780::1722531922::0::1::::<><>::res://Scripts/PowerUpScore.gd<>uid://b4pmqsj7us14s::::res://Sprites/Plushy_1.png
-end_area.tscn::PackedScene::5260507683946726946::1722002432::0::1::::<><>::
-enemy_flying.tscn::PackedScene::3401554119199052703::1722531922::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/enemy_pattern.gd<>uid://c47buyjrpqqc::::res://Sprites/Monster 1-Sheet.png<>res://Scripts/EnemySprite.gd<>res://Scripts/Hurtbox.gd<>res://Scripts/Hitbox.gd<>uid://dg1ses5j3jvya::::res://explosion4.ogg
-enemy_ground.tscn::PackedScene::6949258762907512344::1722531922::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/enemy_pattern.gd<>res://Scripts/EnemySprite.gd<>res://Scripts/Hurtbox.gd<>uid://du4gbbm4481tr::::res://Sprites/Monster 2-Sheet.png<>res://Scripts/Hitbox.gd
-enemy_shooting.tscn::PackedScene::5951018802331270865::1722531922::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/enemy_pattern.gd<>uid://c47buyjrpqqc::::res://Sprites/Monster 1-Sheet.png<>res://Scripts/EnemySprite.gd<>res://Scripts/Hurtbox.gd<>res://Scripts/Hitbox.gd<>res://Scripts/Cannon.gd
-feather_explosion.tscn::PackedScene::3383691813634512120::1722522242::0::1::::<><>::uid://nafluv758xpm::::res://Sprites/Feather explosion-Sheet.png
-FlatTest.tscn::PackedScene::4425050991624389917::1722362498::0::1::::<><>::uid://cft0nn8n6d1x::::res://Misc/tile_map.tres<>uid://coj0wsgkpk8g6::::res://Scenes/player_character.tscn
-gameplay_scene.tscn::PackedScene::8538633197558823658::1722532057::0::1::::<><>::uid://coj0wsgkpk8g6::::res://Scenes/player_character.tscn<>uid://cerrtxb4n448s::::res://Scenes/tile_map.tscn<>uid://cl3rfskwuvtk2::::res://Scenes/spike_trap.tscn<>uid://bop0dm4vu8yep::::res://Scenes/enemy_flying.tscn<>uid://c53f33m0xhv8j::::res://UI/Pixeled.ttf<>res://Scripts/WinLabel.gd<>uid://4nxwx5yy6vfi::::res://Scenes/main_menu.tscn<>uid://dw5stllo87tln::::res://Scenes/slippers.tscn<>uid://dyhgnuysmbhr5::::res://Scenes/doudou.tscn<>uid://c6ajjnwthj4lw::::res://Scenes/enemy_ground.tscn<>uid://cq1yn7hjksk2d::::res://Scenes/enemy_shooting.tscn<>uid://f7hucnkqunx5::::res://Misc/PropTileMap.tres<>uid://cwxamy18boi4y::::res://Sprites/Plushy_2.png<>uid://b4m338ik2k6ix::::res://Sprites/Plushy_3.png<>uid://bpgdvpnxd2nog::::res://Sprites/Plushy_4.png<>uid://cwsmoo6agwqqk::::res://The Journey Is The Treasure [Copyright Free Music]  chill beats #chiptune.mp3<>res://Scripts/FXPlayer.gd
-game_over_menu.tscn::PackedScene::234706853721964573::1722531163::0::1::::<><>::res://Scripts/GameOverMenu.gd<>uid://cnv3kjivwmycq::::res://UI/UICommon.tres
-main_menu.tscn::PackedScene::2063750410110203518::1722522346::0::1::::<><>::uid://cnv3kjivwmycq::::res://UI/UICommon.tres<>res://Scripts/menu.gd
-player_character.tscn::PackedScene::5775622745554222575::1722531922::0::1::::<><>::res://Scripts/PlayerChar.gd<>res://Scripts/StaminaBarIn.gd<>uid://cnv3kjivwmycq::::res://UI/UICommon.tres<>uid://dlxt8ivjf1r2::::res://Scenes/game_over_menu.tscn<>res://Scripts/HealthBarInner.gd<>uid://462wvuirm4u2::::res://Sprites/KidSheet/Pyjama dead-Sheet.png<>uid://bqbqi83weok2w::::res://Sprites/KidSheet/Pyjama attack down-Sheet.png<>uid://bqks52t6cnt71::::res://Sprites/KidSheet/Pyjama attack return-Sheet.png<>uid://bo2vg0hs6gpen::::res://Sprites/KidSheet/Pyjama hurt 2-Sheet.png<>uid://b4pmqsj7us14s::::res://Sprites/Plushy_1.png<>res://Scripts/ScoreLabel.gd<>uid://bi1avrbowrw00::::res://Sprites/VikingLand.png<>uid://cai3smhhhsww8::::res://Sprites/KidSheet/Pyjama idle-Sheet.png<>uid://dtyqcnnri23rj::::res://Sprites/KidSheet/Pyjama run-Sheet.png<>uid://db7tpg1qwo7sx::::res://Sprites/KidSheet/Pyjama attack up saut-Sheet.png<>uid://bdlf4tof367bt::::res://Sprites/KidSheet/Pyjama walk-Sheet.png<>res://Scripts/PlayerAnim.gd<>res://Scripts/Hurtbox.gd<>uid://cuy11oa5rm2ub::::res://Sprites/KidSheet/Pyjama sleep-Sheet.png<>res://Scripts/Hitbox.gd
-projectile.tscn::PackedScene::6140359185010602364::1722531922::0::1::::<><>::res://Scripts/Projectile.gd<>uid://ccxf8uij402r5::::res://Sprites/Projectible-Sheet.png
-slippers.tscn::PackedScene::8766475375122973535::1722531922::0::1::::<><>::res://Scripts/PowerUpSpeed.gd<>uid://daga0av6afo8i::::res://Sprites/Pantoufle bonus-Sheet.png
-spike_trap.tscn::PackedScene::5603763304260286947::1722430178::0::1::::<><>::uid://dp1dqqi64o3pk::::res://Sprites/SpikeTrap.png<>res://Scripts/Hitbox.gd
-test_paltform.tscn::PackedScene::5884449669914586400::1722002432::0::1::::<><>::uid://cy634m21d8842::::res://icon.svg
-tile_map.tscn::PackedScene::5089758493636602624::1722522242::0::1::::<><>::uid://f7hucnkqunx5::::res://Misc/PropTileMap.tres
-::res://Scripts/::1722531836
-Cannon.gd::GDScript::-1::1722452313::0::1::::<>Node2D<>::
-Enemy.gd::GDScript::-1::1722531386::0::1::::<>Node2D<>::
-EnemySprite.gd::GDScript::-1::1722529006::0::1::::<>AnimatedSprite2D<>::
-enemy_pattern.gd::GDScript::-1::1722525851::0::1::::<>CharacterBody2D<>::
-FXPlayer.gd::GDScript::-1::1722531225::0::1::::<>AudioStreamPlayer<>::
-GameOverMenu.gd::GDScript::-1::1722357906::0::1::::<>CanvasLayer<>::
-HealthBarInner.gd::GDScript::-1::1722360026::0::1::::<>ColorRect<>::
-Hitbox.gd::GDScript::-1::1722528842::0::1::::GDHitbox<>Area2D<>::
-Hurtbox.gd::GDScript::-1::1722430135::0::1::::Hurtbox<>Area2D<>::
-menu.gd::GDScript::-1::1722352787::0::1::::<>Control<>::
-MenuManager.gd::GDScript::-1::1722352698::0::1::::<>Node<>::
-PlayerAnim.gd::GDScript::-1::1722531492::0::1::::<>AnimatedSprite2D<>::
-PlayerChar.gd::GDScript::-1::1722531836::0::1::::PlayerChar<>CharacterBody2D<>::
-PowerUp.gd::GDScript::-1::1722522492::0::1::::BasePowerUp<>Area2D<>::
-PowerUpScore.gd::GDScript::-1::1722429196::0::1::::<>BasePowerUp<>::
-PowerUpSpeed.gd::GDScript::-1::1722447475::0::1::::Slippers<>BasePowerUp<>::
-Projectile.gd::GDScript::-1::1722531128::0::1::::Projectile<>GDHitbox<>::
-ScoreLabel.gd::GDScript::-1::1722430080::0::1::::<>Label<>::
-ScoreManager.gd::GDScript::-1::1722429854::0::1::::<>Node<>::
-StaminaBarIn.gd::GDScript::-1::1722086194::0::1::::<>ColorRect<>::
-WinLabel.gd::GDScript::-1::1722531604::0::1::::<>Area2D<>::
-::res://Sprites/::1722441039
-Feather explosion-Sheet.png::CompressedTexture2D::912779280394450574::1722277793::1722277804::1::::<><>::
-House-bedroom-Sheet-export.png::CompressedTexture2D::7093325343615455245::1722440976::1722441039::1::::<><>::
-Monster 1-Sheet.png::CompressedTexture2D::202190459680784010::1722356138::1722356157::1::::<><>::
-Monster 2-Sheet.png::CompressedTexture2D::8623272038876899959::1722361024::1722361071::1::::<><>::
-Pantoufle bonus-Sheet.png::CompressedTexture2D::7171692996300888938::1722352929::1722352940::1::::<><>::
-PlayerDeath.png::CompressedTexture2D::7798540253107010276::1722002432::1722002432::1::::<><>::
-PlayerSleeping.png::CompressedTexture2D::452929481593179624::1722002432::1722002432::1::::<><>::
-PlayerSwordIdle.png::CompressedTexture2D::383695452723624863::1722002432::1722002432::1::::<><>::
-PlayerSwordRun.png::CompressedTexture2D::3979969540155155364::1722002432::1722002432::1::::<><>::
-Plushy_1.png::CompressedTexture2D::4453620952927553892::1722433125::1722433137::1::::<><>::
-Plushy_2.png::CompressedTexture2D::6364499347519732274::1722433125::1722433137::1::::<><>::
-Plushy_3.png::CompressedTexture2D::4448421506391410147::1722433125::1722433137::1::::<><>::
-Plushy_4.png::CompressedTexture2D::3451860066421057726::1722433125::1722433137::1::::<><>::
-Projectible-Sheet.png::CompressedTexture2D::4961063322442460804::1722433146::1722433147::1::::<><>::
-SpikeTrap.png::CompressedTexture2D::8265980105115993496::1722002432::1722002432::1::::<><>::
-Spritesheet.png::CompressedTexture2D::946149618502817514::1722002432::1722002432::1::::<><>::
-SpritesheetBeeg.png::CompressedTexture2D::3378568252093251094::1722002432::1722002432::1::::<><>::
-VikingDefault.png::CompressedTexture2D::148167177617244348::1722002432::1722002432::1::::<><>::
-VikingDefaultLittle.png::CompressedTexture2D::4482687044230036133::1722002432::1722002432::1::::<><>::
-VikingHurt.png::CompressedTexture2D::6487114796344483873::1722002432::1722002432::1::::<><>::
-VikingJump.png::CompressedTexture2D::1040593939908737838::1722002432::1722002432::1::::<><>::
-VikingLand.png::CompressedTexture2D::3001643651182863787::1722002432::1722002432::1::::<><>::
-VikingSwordAttack.png::CompressedTexture2D::8352533104070960366::1722002432::1722002432::1::::<><>::
-VikingSwordStab.png::CompressedTexture2D::6738851444938804215::1722002432::1722002432::1::::<><>::
-::res://Sprites/KidSheet/::1722361071
-Pyjama attack down pantoufle-Sheet.png::CompressedTexture2D::577051292327628421::1722361030::1722361067::1::::<><>::
-Pyjama attack down-Sheet.png::CompressedTexture2D::3512494095421747396::1722266029::1722266030::1::::<><>::
-Pyjama attack return pantoufle-Sheet.png::CompressedTexture2D::6483765739686222909::1722361037::1722361067::1::::<><>::
-Pyjama attack return-Sheet.png::CompressedTexture2D::3531233888022602830::1722266029::1722266030::1::::<><>::
-Pyjama attack up saut pantoufle-Sheet.png::CompressedTexture2D::2600284735570881611::1722361052::1722361067::1::::<><>::
-Pyjama attack up saut-Sheet.png::CompressedTexture2D::7296691748680354379::1722266029::1722266030::1::::<><>::
-Pyjama dead-Sheet.png::CompressedTexture2D::2101151956422542759::1722281978::1722281994::1::::<><>::
-Pyjama hurt 2-Sheet.png::CompressedTexture2D::3426089790353595377::1722277817::1722277826::1::::<><>::
-Pyjama hurt-Sheet.png::CompressedTexture2D::7469621810661494152::1722266029::1722266030::1::::<><>::
-Pyjama idle pantoufle-Sheet.png::CompressedTexture2D::7679755745981489428::1722361052::1722361067::1::::<><>::
-Pyjama idle-Sheet.png::CompressedTexture2D::4791089250928398085::1722266029::1722266030::1::::<><>::
-Pyjama run-Sheet.png::CompressedTexture2D::8543370893441622643::1722346577::1722346583::1::::<><>::
-Pyjama sleep-Sheet.png::CompressedTexture2D::6227789115410925765::1722277843::1722277851::1::::<><>::
-Pyjama walk-Sheet.png::CompressedTexture2D::2620051762725694605::1722265667::1722265667::1::::<><>::
-::res://UI/::1722345061
-Pixeled.ttf::FontFile::6936664331192395655::1722002432::1722002432::1::::<><>::
-UICommon.tres::Theme::5730366687305017748::1722345061::0::1::::<><>::uid://c53f33m0xhv8j::::res://UI/Pixeled.ttf
+::res://::1723394555
+Credits.txt::TextFile::-1::1723393919::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1699731268::0::1::::<><>::
+House-bathroom-Sheet2-export.png::CompressedTexture2D::493607685009307000::1723393919::1723393919::1::::<><>::
+House-kitchen-Sheet2-export.png::CompressedTexture2D::2465482654804051515::1723393919::1723393919::1::::<><>::
+House-living room-Sheet-export.png::CompressedTexture2D::9107940911739349658::1723393919::1723393919::1::::<><>::
+House-tileset-Sheet-export.png::CompressedTexture2D::8282410459097797847::1723393919::1723393919::1::::<><>::
+icon.svg::CompressedTexture2D::6523121862072122545::1699025809::1699025818::1::::<><>::
+RowHouseTileSet-export.png::CompressedTexture2D::3136233554286806400::1723393919::1723393919::1::::<><>::
+Tiles-export.png::CompressedTexture2D::1933614379695798909::1723393919::1723393919::1::::<><>::
+::res://Misc/::1723393919
+PropTileMap.tres::TileSet::417465166753233152::1723393919::0::1::::<><>::uid://c8ccbdce83w7f::::res://Sprites/House-bedroom-Sheet-export.png<>uid://hbdv8kjim8do::::res://House-bathroom-Sheet2-export.png<>uid://bbekey2x3vms6::::res://House-kitchen-Sheet2-export.png<>uid://d207prjykoss5::::res://House-living room-Sheet-export.png<>uid://dqacdciw3pgcd::::res://House-tileset-Sheet-export.png<>uid://bkxhkqsrv1uk3::::res://RowHouseTileSet-export.png<>uid://2swl1md5wm0l::::res://Tiles-export.png
+tile_map.tres::TileSet::151898548160522303::1723393919::0::1::::<><>::uid://boeur4qer7cws::::res://Sprites/SpritesheetBeeg.png
+::res://Scenes/::1723393919
+bind_rect.tscn::PackedScene::5583579946468987384::1699744909::0::1::::<><>::res://Scripts/BindRect.cs<>res://Scripts/BindInput.cs
+doudou.tscn::PackedScene::8858633548324091780::1723393919::0::1::::<><>::res://Scripts/PowerUpScore.gd<>uid://b4pmqsj7us14s::::res://Sprites/Plushy_1.png
+end_area.tscn::PackedScene::5260507683946726946::1699725209::0::1::::<><>::
+enemy_flying.tscn::PackedScene::3401554119199052703::1723393919::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/enemy_pattern.gd<>uid://c47buyjrpqqc::::res://Sprites/Monster 1-Sheet.png<>res://Scripts/EnemySprite.gd<>res://Scripts/Hurtbox.gd<>res://Scripts/Hitbox.gd
+enemy_ground.tscn::PackedScene::6949258762907512344::1723393919::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/enemy_pattern.gd<>res://Scripts/EnemySprite.gd<>res://Scripts/Hurtbox.gd<>uid://du4gbbm4481tr::::res://Sprites/Monster 2-Sheet.png<>res://Scripts/Hitbox.gd
+enemy_shooting.tscn::PackedScene::5951018802331270865::1723393919::0::1::::<><>::res://Scripts/Enemy.gd<>res://Scripts/enemy_pattern.gd<>uid://c47buyjrpqqc::::res://Sprites/Monster 1-Sheet.png<>res://Scripts/EnemySprite.gd<>res://Scripts/Hurtbox.gd<>res://Scripts/Hitbox.gd<>res://Scripts/Cannon.gd
+feather_explosion.tscn::PackedScene::3383691813634512120::1723393919::0::1::::<><>::uid://nafluv758xpm::::res://Sprites/Feather explosion-Sheet.png
+FlatTest.tscn::PackedScene::4425050991624389917::1723393919::0::1::::<><>::uid://cft0nn8n6d1x::::res://Misc/tile_map.tres<>uid://coj0wsgkpk8g6::::res://Scenes/player_character.tscn
+gameplay_scene.tscn::PackedScene::8538633197558823658::1723393919::0::1::::<><>::uid://coj0wsgkpk8g6::::res://Scenes/player_character.tscn<>uid://cerrtxb4n448s::::res://Scenes/tile_map.tscn<>uid://cl3rfskwuvtk2::::res://Scenes/spike_trap.tscn<>uid://bop0dm4vu8yep::::res://Scenes/enemy_flying.tscn<>uid://c53f33m0xhv8j::::res://UI/Pixeled.ttf<>res://Scripts/WinLabel.gd<>uid://4nxwx5yy6vfi::::res://Scenes/main_menu.tscn<>uid://dw5stllo87tln::::res://Scenes/slippers.tscn<>uid://dyhgnuysmbhr5::::res://Scenes/doudou.tscn<>uid://c6ajjnwthj4lw::::res://Scenes/enemy_ground.tscn<>uid://cq1yn7hjksk2d::::res://Scenes/enemy_shooting.tscn<>uid://f7hucnkqunx5::::res://Misc/PropTileMap.tres<>uid://cwxamy18boi4y::::res://Sprites/Plushy_2.png<>uid://b4m338ik2k6ix::::res://Sprites/Plushy_3.png<>uid://bpgdvpnxd2nog::::res://Sprites/Plushy_4.png
+game_over_menu.tscn::PackedScene::234706853721964573::1723393919::0::1::::<><>::res://Scripts/GameOverMenu.gd<>uid://cnv3kjivwmycq::::res://UI/UICommon.tres
+main_menu.tscn::PackedScene::2063750410110203518::1723393919::0::1::::<><>::uid://cnv3kjivwmycq::::res://UI/UICommon.tres<>res://Scripts/menu.gd
+player_character.tscn::PackedScene::5775622745554222575::1723393919::0::1::::<><>::res://Scripts/PlayerChar.gd<>res://Scripts/StaminaBarIn.gd<>uid://cnv3kjivwmycq::::res://UI/UICommon.tres<>uid://dlxt8ivjf1r2::::res://Scenes/game_over_menu.tscn<>res://Scripts/HealthBarInner.gd<>uid://462wvuirm4u2::::res://Sprites/KidSheet/Pyjama dead-Sheet.png<>uid://bqbqi83weok2w::::res://Sprites/KidSheet/Pyjama attack down-Sheet.png<>uid://bqks52t6cnt71::::res://Sprites/KidSheet/Pyjama attack return-Sheet.png<>uid://bo2vg0hs6gpen::::res://Sprites/KidSheet/Pyjama hurt 2-Sheet.png<>uid://b4pmqsj7us14s::::res://Sprites/Plushy_1.png<>res://Scripts/ScoreLabel.gd<>uid://bi1avrbowrw00::::res://Sprites/VikingLand.png<>uid://cai3smhhhsww8::::res://Sprites/KidSheet/Pyjama idle-Sheet.png<>uid://dtyqcnnri23rj::::res://Sprites/KidSheet/Pyjama run-Sheet.png<>uid://db7tpg1qwo7sx::::res://Sprites/KidSheet/Pyjama attack up saut-Sheet.png<>uid://bdlf4tof367bt::::res://Sprites/KidSheet/Pyjama walk-Sheet.png<>res://Scripts/PlayerAnim.gd<>res://Scripts/Hurtbox.gd<>uid://cuy11oa5rm2ub::::res://Sprites/KidSheet/Pyjama sleep-Sheet.png<>res://Scripts/Hitbox.gd
+projectile.tscn::PackedScene::6140359185010602364::1723393919::0::1::::<><>::res://Scripts/Projectile.gd<>uid://ccxf8uij402r5::::res://Sprites/Projectible-Sheet.png
+slippers.tscn::PackedScene::8766475375122973535::1723393919::0::1::::<><>::res://Scripts/PowerUpSpeed.gd<>uid://daga0av6afo8i::::res://Sprites/Pantoufle bonus-Sheet.png
+spike_trap.tscn::PackedScene::5603763304260286947::1723393919::0::1::::<><>::uid://dp1dqqi64o3pk::::res://Sprites/SpikeTrap.png<>res://Scripts/Hitbox.gd
+test_paltform.tscn::PackedScene::5884449669914586400::1699283236::0::1::::<><>::uid://cy634m21d8842::::res://icon.svg
+tile_map.tscn::PackedScene::5089758493636602624::1723393919::0::1::::<><>::uid://f7hucnkqunx5::::res://Misc/PropTileMap.tres
+::res://Scripts/::1723393919
+Cannon.gd::GDScript::-1::1723393919::0::1::::<>Node2D<>::
+Enemy.gd::GDScript::-1::1723393919::0::1::::<>Node2D<>::
+EnemySprite.gd::GDScript::-1::1723393919::0::1::::<>AnimatedSprite2D<>::
+enemy_pattern.gd::GDScript::-1::1723393919::0::1::::<>CharacterBody2D<>::
+GameOverMenu.gd::GDScript::-1::1723393919::0::1::::<>CanvasLayer<>::
+HealthBarInner.gd::GDScript::-1::1723393919::0::1::::<>ColorRect<>::
+Hitbox.gd::GDScript::-1::1723393919::0::1::::GDHitbox<>Area2D<>::
+Hurtbox.gd::GDScript::-1::1723393919::0::1::::Hurtbox<>Area2D<>::
+menu.gd::GDScript::-1::1723393919::0::1::::<>Control<>::
+MenuManager.gd::GDScript::-1::1723393919::0::1::::<>Node<>::
+PlayerAnim.gd::GDScript::-1::1723393919::0::1::::<>AnimatedSprite2D<>::
+PlayerChar.gd::GDScript::-1::1723393919::0::1::::PlayerChar<>CharacterBody2D<>::
+PowerUp.gd::GDScript::-1::1723393919::0::1::::BasePowerUp<>Area2D<>::
+PowerUpScore.gd::GDScript::-1::1723393919::0::1::::<>BasePowerUp<>::
+PowerUpSpeed.gd::GDScript::-1::1723393919::0::1::::Slippers<>BasePowerUp<>::
+Projectile.gd::GDScript::-1::1723393919::0::1::::Projectile<>GDHitbox<>::
+ScoreLabel.gd::GDScript::-1::1723393919::0::1::::<>Label<>::
+ScoreManager.gd::GDScript::-1::1723393919::0::1::::<>Node<>::
+StaminaBarIn.gd::GDScript::-1::1723393919::0::1::::<>ColorRect<>::
+WinLabel.gd::GDScript::-1::1723393919::0::1::::<>Label<>::
+::res://Sprites/::1723393919
+Feather explosion-Sheet.png::CompressedTexture2D::912779280394450574::1723393919::1723393919::1::::<><>::
+House-bedroom-Sheet-export.png::CompressedTexture2D::7093325343615455245::1723393919::1723393919::1::::<><>::
+Monster 1-Sheet.png::CompressedTexture2D::202190459680784010::1723393919::1723393919::1::::<><>::
+Monster 2-Sheet.png::CompressedTexture2D::8623272038876899959::1723393919::1723393919::1::::<><>::
+Pantoufle bonus-Sheet.png::CompressedTexture2D::7171692996300888938::1723393919::1723393919::1::::<><>::
+PlayerDeath.png::CompressedTexture2D::7798540253107010276::1699396198::1699396200::1::::<><>::
+PlayerSleeping.png::CompressedTexture2D::452929481593179624::1699471902::1699471904::1::::<><>::
+PlayerSwordIdle.png::CompressedTexture2D::383695452723624863::1699395131::1699395133::1::::<><>::
+PlayerSwordRun.png::CompressedTexture2D::3979969540155155364::1699367723::1699392206::1::::<><>::
+Plushy_1.png::CompressedTexture2D::4453620952927553892::1723393919::1723393919::1::::<><>::
+Plushy_2.png::CompressedTexture2D::6364499347519732274::1723393919::1723393919::1::::<><>::
+Plushy_3.png::CompressedTexture2D::4448421506391410147::1723393919::1723393919::1::::<><>::
+Plushy_4.png::CompressedTexture2D::3451860066421057726::1723393919::1723393919::1::::<><>::
+Projectible-Sheet.png::CompressedTexture2D::4961063322442460804::1723393919::1723393919::1::::<><>::
+SpikeTrap.png::CompressedTexture2D::8265980105115993496::1699566242::1699566246::1::::<><>::
+Spritesheet.png::CompressedTexture2D::946149618502817514::1699290388::1699290397::1::::<><>::
+SpritesheetBeeg.png::CompressedTexture2D::3378568252093251094::1699307210::1699307213::1::::<><>::
+VikingDefault.png::CompressedTexture2D::148167177617244348::1699281834::1699281836::1::::<><>::
+VikingDefaultLittle.png::CompressedTexture2D::4482687044230036133::1699292902::1699292905::1::::<><>::
+VikingHurt.png::CompressedTexture2D::6487114796344483873::1699404394::1699404398::1::::<><>::
+VikingJump.png::CompressedTexture2D::1040593939908737838::1699454722::1699454724::1::::<><>::
+VikingLand.png::CompressedTexture2D::3001643651182863787::1699455216::1699455219::1::::<><>::
+VikingSwordAttack.png::CompressedTexture2D::8352533104070960366::1699405490::1699405492::1::::<><>::
+VikingSwordStab.png::CompressedTexture2D::6738851444938804215::1699406390::1699406392::1::::<><>::
+::res://Sprites/KidSheet/::1723393919
+Pyjama attack down pantoufle-Sheet.png::CompressedTexture2D::577051292327628421::1723393919::1723393919::1::::<><>::
+Pyjama attack down-Sheet.png::CompressedTexture2D::3512494095421747396::1723393919::1723393919::1::::<><>::
+Pyjama attack return pantoufle-Sheet.png::CompressedTexture2D::6483765739686222909::1723393919::1723393919::1::::<><>::
+Pyjama attack return-Sheet.png::CompressedTexture2D::3531233888022602830::1723393919::1723393919::1::::<><>::
+Pyjama attack up saut pantoufle-Sheet.png::CompressedTexture2D::2600284735570881611::1723393919::1723393919::1::::<><>::
+Pyjama attack up saut-Sheet.png::CompressedTexture2D::7296691748680354379::1723393919::1723393919::1::::<><>::
+Pyjama dead-Sheet.png::CompressedTexture2D::2101151956422542759::1723393919::1723393919::1::::<><>::
+Pyjama hurt 2-Sheet.png::CompressedTexture2D::3426089790353595377::1723393919::1723393919::1::::<><>::
+Pyjama hurt-Sheet.png::CompressedTexture2D::7469621810661494152::1723393919::1723393919::1::::<><>::
+Pyjama idle pantoufle-Sheet.png::CompressedTexture2D::7679755745981489428::1723393919::1723393919::1::::<><>::
+Pyjama idle-Sheet.png::CompressedTexture2D::4791089250928398085::1723393919::1723393919::1::::<><>::
+Pyjama run-Sheet.png::CompressedTexture2D::8543370893441622643::1723393919::1723393919::1::::<><>::
+Pyjama sleep-Sheet.png::CompressedTexture2D::6227789115410925765::1723393919::1723393919::1::::<><>::
+Pyjama walk-Sheet.png::CompressedTexture2D::2620051762725694605::1723393919::1723393919::1::::<><>::
+::res://UI/::1723393919
+Pixeled.ttf::FontFile::6936664331192395655::1699472023::1699472039::1::::<><>::
+UICommon.tres::Theme::5730366687305017748::1723393919::0::1::::<><>::uid://c53f33m0xhv8j::::res://UI/Pixeled.ttf
