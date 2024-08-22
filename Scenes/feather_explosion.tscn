@@ -95,6 +95,7 @@ animations = [{
 }]
 
 [node name="FeatherExplosion" type="AnimatedSprite2D"]
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_4v8iw")
 animation = &"Explosion"
 autoplay = "Explosion"

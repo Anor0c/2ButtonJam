@@ -1,17 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://4nxwx5yy6vfi"]
+[gd_scene load_steps=9 format=3 uid="uid://4nxwx5yy6vfi"]
 
 [ext_resource type="Theme" uid="uid://cnv3kjivwmycq" path="res://UI/UICommon.tres" id="1_aslgy"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_ok0ln"]
+[ext_resource type="Texture2D" uid="uid://d0al5hmd1frwi" path="res://Background_UI.png" id="3_ldryd"]
+[ext_resource type="Texture2D" uid="uid://rrcca57kfw5q" path="res://Title.png" id="4_u6k1g"]
+[ext_resource type="FontFile" uid="uid://c53f33m0xhv8j" path="res://UI/Pixeled.ttf" id="5_8w84g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rao0v"]
-line_spacing = 6.0
-font_size = 20
+line_spacing = 4.0
+font = ExtResource("5_8w84g")
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_sghsg"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_dwjeb"]
+font_size = 24
+font_color = Color(0.611765, 0.741176, 0.980392, 1)
+outline_color = Color(0.415686, 0.568627, 0.847059, 1)
+shadow_size = 0
+
 [node name="MainMenu" type="CanvasLayer"]
 
-[node name="MainMenuControl" type="Control" parent="." node_paths=PackedStringArray("focusButton", "creditLabel")]
+[node name="MainMenuControl" type="Control" parent="." node_paths=PackedStringArray("focusButton", "creditLabel", "controlsLabel")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -25,40 +37,78 @@ theme = ExtResource("1_aslgy")
 script = ExtResource("1_ok0ln")
 focusButton = NodePath("PlayButton")
 creditLabel = NodePath("Label")
+controlsLabel = NodePath("ControlsLabel")
 
-[node name="ColorRect" type="ColorRect" parent="MainMenuControl"]
+[node name="ColorRect" type="TextureRect" parent="MainMenuControl"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.374364, 0.415258, 0.480654, 1)
+texture = ExtResource("3_ldryd")
+
+[node name="Title" type="TextureRect" parent="MainMenuControl"]
+visible = false
+offset_left = 127.0
+offset_top = 29.0
+offset_right = 1027.0
+offset_bottom = 165.0
+texture = ExtResource("4_u6k1g")
 
 [node name="PlayButton" type="Button" parent="MainMenuControl"]
-layout_mode = 0
-offset_left = 300.0
-offset_top = 150.0
-offset_right = 800.0
-offset_bottom = 250.0
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 327.0
+offset_top = 204.0
+offset_right = 827.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_top = NodePath("../QuitButton")
-focus_neighbor_bottom = NodePath("../CreditButton")
+focus_neighbor_bottom = NodePath("../ControlsButton")
 focus_mode = 1
 text = "Play"
 
-[node name="CreditButton" type="Button" parent="MainMenuControl"]
-layout_mode = 0
-offset_left = 300.0
-offset_top = 300.0
-offset_right = 800.0
-offset_bottom = 400.0
+[node name="ControlsButton" type="Button" parent="MainMenuControl"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 327.0
+offset_top = 324.0
+offset_right = 827.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../CreditButton")
+focus_mode = 1
+text = "Controls"
+
+[node name="CreditButton" type="Button" parent="MainMenuControl"]
+visible = false
+layout_mode = 0
+offset_left = 327.0
+offset_top = 453.0
+offset_right = 827.0
+offset_bottom = 553.0
+focus_neighbor_top = NodePath("../ControlsButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="MainMenuControl"]
+visible = false
 layout_mode = 0
-offset_left = 300.0
-offset_top = 450.0
-offset_right = 800.0
-offset_bottom = 550.0
+offset_left = 986.0
+offset_top = 548.0
+offset_right = 1119.0
+offset_bottom = 618.0
 focus_neighbor_top = NodePath("../CreditButton")
 focus_neighbor_bottom = NodePath("../PlayButton")
 text = "Quit"
@@ -66,33 +116,71 @@ text = "Quit"
 [node name="Label" type="Label" parent="MainMenuControl"]
 visible = false
 layout_mode = 1
+offset_left = 28.0
 offset_right = 1120.0
 offset_bottom = 644.0
-text = "A game by Anoroc and Koda
+text = "A game by Anoroc and kokokoda
 
     Assets Used : 
-Animations Player = Pixel Art Character Asset Pack by ZeggyGames
 BG = Kenney's Game Assets all in 1 by Kenney
+Animations Player = FREE Pixel Art Character Asset Pack by ZeggyGames
 Pixel Font = Pixeled by OmegaPC777
+Legacy Adventure Pack - VILLAGE by Anokolisa
+Row House Tileset by Guardian
+House-tileset by maschiaT
+The Journey Is The Treasure by ChillMindscapes - Musique Pour Streamers
+Night Shade by AdhesiveWombat
 "
 label_settings = SubResource("LabelSettings_rao0v")
 
-[node name="BackButton" type="Button" parent="MainMenuControl/Label"]
+[node name="ControlsLabel" type="Label" parent="MainMenuControl"]
+offset_left = 27.0
+offset_top = 31.0
+offset_right = 1122.0
+offset_bottom = 627.0
+text = "Your mom is sleeping upstairs, if you manage to join her you'll be safe from the nightmares !!
+Find the hidden plushies
+
+
+
+
+You are already pretty sleepy, so moving takes you a lot of energy
+Stay still to take a nap
+"
+label_settings = SubResource("LabelSettings_sghsg")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="MainMenuControl/ControlsLabel"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 190.0
+offset_right = 1012.0
+offset_bottom = 400.0
+text = "Press Z or SPACE to JUMP 
+Press D to ATTACK, keep D pressed to MOVE
+Double press D to TURN AROUND"
+label_settings = SubResource("LabelSettings_dwjeb")
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="MainMenuControl"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 171.0
-offset_top = 106.5
-offset_right = 474.0
-offset_bottom = 192.5
+offset_left = 814.0
+offset_top = 526.0
+offset_right = 1117.0
+offset_bottom = 612.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Back"
 
 [connection signal="pressed" from="MainMenuControl/PlayButton" to="MainMenuControl" method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/ControlsButton" to="MainMenuControl" method="_on_controls_button_pressed"]
 [connection signal="pressed" from="MainMenuControl/CreditButton" to="MainMenuControl" method="_on_credit_button_pressed"]
 [connection signal="pressed" from="MainMenuControl/QuitButton" to="MainMenuControl" method="_on_quit_button_pressed"]
-[connection signal="pressed" from="MainMenuControl/Label/BackButton" to="MainMenuControl" method="_on_back_button_pressed"]
+[connection signal="pressed" from="MainMenuControl/BackButton" to="MainMenuControl" method="_on_back_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bop0dm4vu8yep"]
+[gd_scene load_steps=20 format=3 uid="uid://bop0dm4vu8yep"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_paofa"]
 [ext_resource type="Script" path="res://Scripts/enemy_pattern.gd" id="2_o2oyc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/EnemySprite.gd" id="4_td1j8"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="5_fh8bx"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="6_7h56a"]
+[ext_resource type="AudioStream" uid="uid://dg1ses5j3jvya" path="res://explosion4.ogg" id="7_4r484"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omq1g"]
 radius = 32.0
@@ -82,7 +83,6 @@ size = Vector2(80, 64)
 size = Vector2(64, 48)
 
 [node name="EnemyFlying" type="Node2D"]
-position = Vector2(776, 408)
 script = ExtResource("1_paofa")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -97,6 +97,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_omq1g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" node_paths=PackedStringArray("enemyBody")]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_0e4cd")
 animation = &"Idle"
 frame_progress = 0.539844
@@ -118,5 +119,9 @@ script = ExtResource("6_7h56a")
 
 [node name="HitboxShape" type="CollisionShape2D" parent="CharacterBody2D/GDHitbox"]
 shape = SubResource("RectangleShape2D_2aje8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4r484")
+volume_db = -10.0
 
 [connection signal="EnemyDeath" from="." to="CharacterBody2D/AnimatedSprite2D" method="_on_enemy_death"]

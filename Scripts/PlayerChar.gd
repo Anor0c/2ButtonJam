@@ -33,13 +33,35 @@ var sleepCounter : int= 0
 @onready var hurtBox : Hurtbox = get_node("Hurtbox")
 
 @onready var anim : AnimatedSprite2D = get_node("AnimatedSprite2D")
+@onready var audio : AudioStreamPlayer = get_node("AudioStreamPlayer")
 @onready var cam : Camera2D = get_node("Camera2D")
 @onready var deathScreen : CanvasLayer = get_node("Camera2D/DeathMenu")
 @onready var winScreen : CanvasLayer = get_node("Camera2D/WinMenu")
+var hasWon : bool = false
+
+@onready var stepSounds : Array[AudioStream]= [
+preload("res://footstep_carpet_000.ogg"),
+preload("res://footstep_carpet_001.ogg"), 
+preload("res://footstep_carpet_002.ogg")]
+@onready var swooshSounds : Array[AudioStream]= [
+preload("res://woosh1.ogg"),
+preload("res://woosh2.ogg"),
+preload("res://woosh3.ogg"),
+preload("res://woosh4.ogg"),
+preload("res://woosh5.ogg"),
+preload("res://woosh6.ogg"),
+preload("res://woosh7.ogg"),
+preload("res://woosh8.ogg"),
+]
+@onready var hurtSound : AudioStream = preload("res://hurt1.ogg")
+@onready var deadSound : AudioStream = preload("res://gameover2.ogg")
+@onready var sleepSound : AudioStream = preload("res://Sigh Sound Effect.mp3")
+
 func _ready() ->void:
 	currentStamina = MaxStamina
 	currentHealth = MaxHealth
 	cam.make_current()
+
 
 func _physics_process(delta : float)->void:
 #Gravity
@@ -76,6 +98,8 @@ func _physics_process(delta : float)->void:
 		anim.wasInAir = true
 		anim.isJumping = true
 		anim.isAttacking = true
+		audio.stream = swooshSounds[randi()%7]
+		audio.play()
 
 	#Handle Forward Input
 	if Input.is_action_just_pressed("Forward") && is_on_floor():
@@ -84,9 +108,13 @@ func _physics_process(delta : float)->void:
 		if (anim.isAttacking == false):
 			anim.SlashAnim()
 			anim.isAttacking = true
+			audio.stream = swooshSounds[randi()%7]
+			audio.play()
 		elif (anim.animation=="Slash"||anim.frame_progress>=0.6):
 			anim.StabAnim()
 			anim.isAttacking = true
+			audio.stream = swooshSounds[randi()%7]
+			audio.play()
 			TurnAround()
 
 	if Input.is_action_pressed("Forward"):
@@ -114,6 +142,7 @@ func _physics_process(delta : float)->void:
 func _process(_delta : float)->void:
 	if (not canMove):
 		canMove=HasEnoughStamina(MaxStamina)
+
 	#print ("Can Move is ", canMove)
 	
 func TurnAround()->void:
@@ -147,8 +176,12 @@ func TakeDamage (Damage : float) ->void :
 	if (currentHealth == 0):
 		Death()
 		anim.DeathAnim()
+		audio.stream = deadSound
+		audio.play()
 	else:
 		anim.HurtAnim()
+		audio.stream = hurtSound
+		audio.play()
 
 func Death()->void: 
 	hurtBox.queue_free()
@@ -175,18 +208,27 @@ func _on_animated_sprite_2d_state_changed(animState : StringName)->void:
 		fwdAtkHitbox.monitorable = false
 		turnHitbox.monitorable = true
 
-	#if animState == "Run" or animState=="Sleep":
-		#fwdAtkHitbox.disabled = true
-		#turnHitbox.disabled = true
-		#jumpHitbox.disabled = true
+	#if anim.isSleeping : 
+		#audio.stream = sleepSound
+		#audio.pitch_scale = 2
+		#if not audio.playing:
+			#audio.play()
+		#else :
+			#print ("dont play")
+	#else :
+		#print ("awaka") 
 
 
 func _on_animated_sprite_2d_state_looped(animState:StringName)->void:
-	if (animState == "Run"):
+	if hasWon:
+		animState = "Win"
+	if animState == "Run" or animState=="Walk":
 		StaminaUpdate(runStaminaCost)
-	if (animState == "Idle"):
+		audio.stream = stepSounds[randi()%2]
+		audio.play()
+	if animState == "Idle":
 		sleepCounter+=1
-		if (sleepCounter >= 3):
+		if sleepCounter >= 3:
 			anim.SleepAnim()
 			sleepCounter = 0
 			return
@@ -196,6 +238,8 @@ func _on_animated_sprite_2d_state_looped(animState:StringName)->void:
 
 
 func _on_animated_sprite_2d_state_ended(animState:StringName)->void:
+	if hasWon:
+		animState = "Win"
 	if(animState == "Slash"):
 		fwdAtkHitbox.monitorable = false
 	if(animState == "TurnAttack"):
@@ -206,3 +250,13 @@ func _on_animated_sprite_2d_state_ended(animState:StringName)->void:
 		canMove = true
 
 #endregion
+
+
+func _on_win():
+	if not hasWon :
+		hurtBox.queue_free()
+		jumpHitbox.queue_free()
+		turnHitbox.queue_free()
+		fwdAtkHitbox.queue_free()
+		
+		hasWon=true

@@ -1,17 +1,22 @@
-[gd_scene load_steps=99 format=3 uid="uid://coj0wsgkpk8g6"]
+[gd_scene load_steps=104 format=3 uid="uid://coj0wsgkpk8g6"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerChar.gd" id="1_28tex"]
 [ext_resource type="Script" path="res://Scripts/StaminaBarIn.gd" id="2_wgpxs"]
+[ext_resource type="Texture2D" uid="uid://s6ogtf86iou0" path="res://Lose_title.png" id="4_2nykd"]
 [ext_resource type="Theme" uid="uid://cnv3kjivwmycq" path="res://UI/UICommon.tres" id="4_fd7d3"]
 [ext_resource type="PackedScene" uid="uid://dlxt8ivjf1r2" path="res://Scenes/game_over_menu.tscn" id="4_ynk8f"]
+[ext_resource type="Texture2D" uid="uid://1lx6s0r1yy7i" path="res://Plushy_1.png" id="5_e7vk4"]
 [ext_resource type="Script" path="res://Scripts/HealthBarInner.gd" id="5_el6x0"]
 [ext_resource type="Texture2D" uid="uid://462wvuirm4u2" path="res://Sprites/KidSheet/Pyjama dead-Sheet.png" id="5_pv7hc"]
 [ext_resource type="Texture2D" uid="uid://bqbqi83weok2w" path="res://Sprites/KidSheet/Pyjama attack down-Sheet.png" id="5_qjapa"]
 [ext_resource type="Texture2D" uid="uid://bqks52t6cnt71" path="res://Sprites/KidSheet/Pyjama attack return-Sheet.png" id="6_82j5a"]
 [ext_resource type="Texture2D" uid="uid://bo2vg0hs6gpen" path="res://Sprites/KidSheet/Pyjama hurt 2-Sheet.png" id="6_e7ddw"]
 [ext_resource type="Texture2D" uid="uid://b4pmqsj7us14s" path="res://Sprites/Plushy_1.png" id="6_ojo16"]
+[ext_resource type="Texture2D" uid="uid://nfvag8n2x5gd" path="res://Plushy_2.png" id="6_rvrrb"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="7_ol1rk"]
+[ext_resource type="Texture2D" uid="uid://85b4nh4d7856" path="res://Plushy_3.png" id="7_rq5k5"]
 [ext_resource type="Texture2D" uid="uid://bi1avrbowrw00" path="res://Sprites/VikingLand.png" id="7_sxbuh"]
+[ext_resource type="Texture2D" uid="uid://b234i1o8pflnb" path="res://Plushy_4.png" id="8_1dni6"]
 [ext_resource type="Texture2D" uid="uid://cai3smhhhsww8" path="res://Sprites/KidSheet/Pyjama idle-Sheet.png" id="8_6dfk6"]
 [ext_resource type="Texture2D" uid="uid://dtyqcnnri23rj" path="res://Sprites/KidSheet/Pyjama run-Sheet.png" id="9_8qhtj"]
 [ext_resource type="Texture2D" uid="uid://db7tpg1qwo7sx" path="res://Sprites/KidSheet/Pyjama attack up saut-Sheet.png" id="9_ndt75"]
@@ -637,11 +642,67 @@ script = ExtResource("2_wgpxs")
 [node name="DeathMenu" parent="Camera2D" instance=ExtResource("4_ynk8f")]
 visible = false
 
-[node name="WinMenu" parent="Camera2D" instance=ExtResource("4_ynk8f")]
+[node name="Label" parent="Camera2D/DeathMenu/Control" index="3"]
+offset_left = -225.504
+offset_top = -23.792
+offset_right = 226.896
+texture = ExtResource("4_2nykd")
+
+[node name="WinMenu" parent="Camera2D" node_paths=PackedStringArray("plushesUI") instance=ExtResource("4_ynk8f")]
+layer = 2
 visible = false
+plushesUI = [NodePath("Control/Plush"), NodePath("Control/Plush2"), NodePath("Control/Plush3"), NodePath("Control/Plush4")]
+
+[node name="RetryButton" parent="Camera2D/WinMenu/Control" index="1"]
+offset_left = -0.191986
+offset_top = 100.136
+offset_right = 0.192017
+offset_bottom = 99.864
+
+[node name="QuitButton" parent="Camera2D/WinMenu/Control" index="2"]
+offset_left = -0.191986
+offset_top = 229.136
+offset_right = 0.192017
+offset_bottom = 228.864
 
 [node name="Label" parent="Camera2D/WinMenu/Control" index="3"]
-text = "You Won!!"
+offset_bottom = -30.952
+
+[node name="Plush" type="TextureRect" parent="Camera2D/WinMenu/Control" index="4"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = -26.0
+offset_right = 1155.0
+offset_bottom = 437.0
+texture = ExtResource("5_e7vk4")
+stretch_mode = 5
+
+[node name="Plush2" type="TextureRect" parent="Camera2D/WinMenu/Control" index="5"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = -26.0
+offset_right = 1005.0
+offset_bottom = 437.0
+texture = ExtResource("6_rvrrb")
+stretch_mode = 5
+
+[node name="Plush3" type="TextureRect" parent="Camera2D/WinMenu/Control" index="6"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = -26.0
+offset_right = 855.0
+offset_bottom = 437.0
+texture = ExtResource("7_rq5k5")
+stretch_mode = 5
+
+[node name="Plush4" type="TextureRect" parent="Camera2D/WinMenu/Control" index="7"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = -26.0
+offset_right = 705.0
+offset_bottom = 437.0
+texture = ExtResource("8_1dni6")
+stretch_mode = 5
 
 [node name="UILayer" type="CanvasLayer" parent="Camera2D"]
 
@@ -705,7 +766,7 @@ label_settings = SubResource("LabelSettings_nrnlt")
 script = ExtResource("7_ol1rk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("playerChar")]
-z_index = 1
+z_index = 3
 sprite_frames = SubResource("SpriteFrames_mlcwx")
 animation = &"Falling"
 frame_progress = 0.587222
@@ -754,6 +815,8 @@ script = ExtResource("14_yh77f")
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_a2eew")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="OnHealthChanged" from="." to="Camera2D/UILayer/Control/HealthBarOuter/HealthBarInner" method="_on_player_character_on_health_changed"]
 [connection signal="OnPlayerDied" from="." to="Camera2D/DeathMenu" method="_on_game_over"]
 [connection signal="OnStaminaChanged" from="." to="Camera2D/StaminaBarOut/StaminaBarIn" method="_on_player_character_on_stamina_changed"]
@@ -764,4 +827,5 @@ shape = SubResource("RectangleShape2D_a2eew")
 [connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_looped"]
 
+[editable path="Camera2D/DeathMenu"]
 [editable path="Camera2D/WinMenu"]

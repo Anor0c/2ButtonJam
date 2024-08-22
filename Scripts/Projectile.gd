@@ -12,3 +12,7 @@ func _physics_process(delta:float)->void:
 func _on_area_entered(_area:Area2D)->void:
 	print(_area)
 	queue_free()
+
+
+func _on_timer_timeout():
+	queue_free()

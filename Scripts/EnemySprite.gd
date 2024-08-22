@@ -14,5 +14,5 @@ func _process(_delta : float) ->void:
 		self.flip_h=false
 
 
-func _on_enemy_death():
+func _on_enemy_death()->void:
 	visible = false

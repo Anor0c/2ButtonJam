@@ -27,6 +27,8 @@ func _process(_delta : float)->void:
 	if (animation != "Idle"):
 		isIdle = false;
 
+	 
+
 func _physics_process(_delta: float)->void:
 	if (isRunning 
 	or isJumping 
@@ -51,7 +53,7 @@ func IdleAnim()->void:
 func RunAnim()->void:
 	#if isRunning : return
 	#stop()
-	if playerChar.PlayerSpeed>=500: play("Run") 
+	if playerChar.PlayerSpeed>=400 or playerChar.PlayerSpeed<=-400: play("Run") 
 	else : play("Walk")
 
 
@@ -124,4 +126,3 @@ func _on_animation_finished()->void:
 func _on_animation_looped()->void:
 	print (animation, " Loop")
 	emit_signal("StateLooped", animation)
-	

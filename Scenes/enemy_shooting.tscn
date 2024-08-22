@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cq1yn7hjksk2d"]
+[gd_scene load_steps=21 format=3 uid="uid://cq1yn7hjksk2d"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_t2qi2"]
 [ext_resource type="Script" path="res://Scripts/enemy_pattern.gd" id="2_crcaa"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="5_s56fx"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="6_g0elq"]
 [ext_resource type="Script" path="res://Scripts/Cannon.gd" id="7_phvpx"]
+[ext_resource type="AudioStream" uid="uid://dg1ses5j3jvya" path="res://explosion4.ogg" id="8_7jvju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omq1g"]
 radius = 32.0
@@ -98,6 +99,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_omq1g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" node_paths=PackedStringArray("enemyBody")]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_0e4cd")
 animation = &"Idle"
 frame_progress = 0.539844
@@ -125,5 +127,11 @@ shape = SubResource("RectangleShape2D_2aje8")
 [node name="CannonTransform" type="Node2D" parent="CharacterBody2D"]
 position = Vector2(-50, 0)
 script = ExtResource("7_phvpx")
+TimeToShoot = 2.5
+shootDistanceX = 1000.0
+shootDistanceY = 250.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_7jvju")
 
 [connection signal="EnemyDeath" from="." to="CharacterBody2D/AnimatedSprite2D" method="_on_enemy_death"]
